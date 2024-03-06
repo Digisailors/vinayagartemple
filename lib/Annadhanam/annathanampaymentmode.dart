@@ -128,9 +128,5 @@ class _PaymentOptionsDialogState extends State<PaymentOptionsDialog> {
     );
   }
 
-  // void _processPayment(BuildContext context, String paymentMode) {
-  //   paymentBooking();
-
-  //   //Navigator.of(context).pop();
-  // }
+  
 }

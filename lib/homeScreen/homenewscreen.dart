@@ -34,8 +34,8 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
 
   List<YoutubeList>? youtubeList;
   static const List<String> sampleImages = [
-    'assets/mainslider0.jpg',
-    'assets/mainslider1.jpg',
+    'assets/vinayagar.jpeg',
+  'assets/vinayagar.jpeg',
     // 'assets/mainslider2.jpeg',
     //'assets/mainslider3.jpeg',
     // 'assets/mainsliders.jpg',
@@ -173,7 +173,7 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                         topLeft: Radius.circular(50),
                                         topRight: Radius.circular(50))),
                                 child: Image.asset(
-                                  "assets/ammannew.png",
+                                 'assets/vinayagar.jpeg',
                                   fit: BoxFit.contain,
                                 ),
                               ),
@@ -436,7 +436,7 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                                                   12)),
                                                   image: DecorationImage(
                                                     image: AssetImage(
-                                                      'assets/mainslider1.jpg',
+                                                      'assets/vinayagar.jpeg',
                                                     ),
                                                     fit: BoxFit.fill,
                                                   )),
@@ -527,7 +527,7 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                                           image:
                                                               DecorationImage(
                                                             image: AssetImage(
-                                                              'assets/mainslider1.jpg',
+                                                              'assets/vinayagar.jpeg',
                                                             ),
                                                             fit: BoxFit.fill,
                                                           )),
@@ -613,7 +613,7 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                 child: VideoCard(
                                   title: 'The Arulmigu Rajamariamman Temple was founded by Mr Kootha Perumal Vandayar who wanted a place to worship for the Hindus of Johor Bahru',
                                   date:'22/02/2024',
-                                  imageUrl: 'assets/mainslider1.jpg',
+                                  imageUrl: 'assets/vinayagar.jpeg',
                                   videoUrl: '',
                                   onTap: () {
                                   Get.to(()=>VideoNews(title: 'Arulmigu', description: 'testing', subTitle:'test', vidoeUrl: 'https://www.youtube.com/watch?v=Svmvj-zNBi8', date: '22/02', imageUrl: 'assets/mainslider1.jpg', index: index, id: ''));
@@ -712,19 +712,19 @@ class ItemModel {
 List<ItemModel> yourItemList = [
   ItemModel(
     color: Colors.red,
-    imagePath: 'assets/timer.png',
+    imagePath: 'assets/vinayagar.jpeg',
     itemName: 'Time'.tr,
   ),
   ItemModel(
-    imagePath: 'assets/fest.png',
+    imagePath: 'assets/vinayagar.jpeg',
     itemName: 'Festivals'.tr,
   ),
   ItemModel(
-    imagePath: 'assets/pric.png',
+    imagePath: 'assets/vinayagar.jpeg',
     itemName: 'Price'.tr,
   ),
   ItemModel(
-    imagePath: 'assets/list.png',
+    imagePath: 'assets/vinayagar.jpeg',
     itemName: 'List'.tr,
   ),
 ];
@@ -791,8 +791,8 @@ class ItemModels1 {
 }
 
 List<ItemModels1> yourItemLists = [
-  ItemModels1(imagePaths: 'assets/ubayam.png', itemNames: 'Ubayam'),
-  ItemModels1(imagePaths: 'assets/annathanams.png', itemNames: 'Annathanam'),
-  ItemModels1(imagePaths: 'assets/donates.png', itemNames: 'Cash Donation'),
-  ItemModels1(imagePaths: 'assets/hallbook.png', itemNames: 'Hall Booking'),
+  ItemModels1(imagePaths: 'assets/vinayagar.jpeg', itemNames: 'Ubayam'),
+  ItemModels1(imagePaths: 'assets/vinayagar.jpeg', itemNames: 'Annathanam'),
+  ItemModels1(imagePaths: 'assets/vinayagar.jpeg', itemNames: 'Cash Donation'),
+  ItemModels1(imagePaths: 'assets/vinayagar.jpeg', itemNames: 'Hall Booking'),
 ];

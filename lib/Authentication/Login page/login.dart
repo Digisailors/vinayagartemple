@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Stack(
             children: [
               Image.asset(
-                'assets/armdtemple.png',
+                'assets/vinayagar.jpeg',
                 fit: BoxFit.cover,
                 height: double.infinity,
                 width: double.infinity,
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                         // color: Colors.white,
                       ),
                       child: ClipOval(
-                        child: Image.asset('assets/ammannew.png'),
+                        child: Image.asset('assets/vinayagar.jpeg'),
                       ),
                     ),
                     hGap20,

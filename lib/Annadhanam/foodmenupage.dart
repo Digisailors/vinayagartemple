@@ -126,8 +126,42 @@ class _FoodMenuPageState extends State<FoodMenuPage> {
    
     }
   }
-
+bool validateBooking() {
+  if (selectedDropdownValue == null) {
+    showSnackBarMessage('Please select a package.');
+    return false;
+  }
+  if (selectedRadioValue == null) {
+    showSnackBarMessage('Please select a Kuruma item.');
+    return false;
+  }
+  if (selectedRadioValue1 == null) {
+    showSnackBarMessage('Please select a Rice category.');
+    return false;
+  }
+  if (selectedRadioValue2 == null) {
+    showSnackBarMessage('Please select a Rice type.');
+    return false;
+  }
+  if (selectedRadioValue3 == null) {
+    showSnackBarMessage('Please select a Poriyal.');
+    return false;
+  }
+  return true;
+}
+void showSnackBarMessage(String message) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(message),
+      duration: Duration(seconds: 3),
+    ),
+  );
+}
   Future<void> bookNow() async {
+
+     if (!validateBooking()) {
+    return;
+  }
     var slotTime;
 
     if (widget.selectedMealIndex == 1) {
@@ -194,11 +228,11 @@ class _FoodMenuPageState extends State<FoodMenuPage> {
             },
           );
         } else {
-          print('Error: ${response.statusCode}, ${response.body}');
+        
           ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Error: ${response.statusCode}, ${response.body}'),
-            duration: Duration(seconds: 3),
+            content: Text('Error}'),
+          
           ),
         );
         }
@@ -207,7 +241,7 @@ class _FoodMenuPageState extends State<FoodMenuPage> {
         ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error: $error'),
-          duration: Duration(seconds: 3), // 
+       
         ),
       );
       }
@@ -391,7 +425,7 @@ class _FoodMenuPageState extends State<FoodMenuPage> {
                           elevation: 5,
                           child: ListTile(
                             title: AutoSizeText(whitetypelist.name ?? ''),
-                            //subtitle: Text(whitetypelist!.nameTamil??''),
+                        
                             trailing: Radio(
                               value: int.tryParse(whitetypelist.id ?? ''),
                               groupValue: selectedRadioValue2,

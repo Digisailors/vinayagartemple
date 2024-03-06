@@ -56,6 +56,10 @@ dependencies:
   motion_toast: ^2.8.0
   dio: ^5.4.1
   image_picker: ^1.0.7
+  webview_flutter: ^3.0.0
+  flutter_local_notifications: ^16.3.3
+  firebase_core: ^2.26.0
+  firebase_messaging: ^14.7.18
 
 dev_dependencies:
   flutter_test:
