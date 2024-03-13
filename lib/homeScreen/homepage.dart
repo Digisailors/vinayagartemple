@@ -19,6 +19,7 @@ class _HomepageState extends State<Homepage> {
    const MemberProfileView(),
    
    ContactPage(),
+   YoutubePlayerPage()
 
   ];
   int currentPageIndex = 0;
@@ -41,7 +42,7 @@ class _HomepageState extends State<Homepage> {
          },
          selectedIndex: currentPageIndex,
          elevation: 10,
-         backgroundColor: Colors.red,
+         backgroundColor: Colors.white,
          indicatorColor: Color.fromARGB(255, 60, 55, 55).withOpacity(0.5),
          destinations: [
             NavigationDestination(
@@ -50,7 +51,7 @@ class _HomepageState extends State<Homepage> {
               isLabelVisible: false,
                  child: SizedBox(
                   height: 30,
-                  child: Image.asset('assets/homeicon.png'))),
+                  child: Image.asset('assets/icon-home.png'))),
              label: 'Home',
              
            ),
@@ -61,7 +62,7 @@ class _HomepageState extends State<Homepage> {
               textColor: Colors.white,
                  child: SizedBox(
                   height: 30,
-                  child: Image.asset('assets/profileicon.png'))),
+                  child: Image.asset('assets/icon-profile.png'))),
              label: 'Profile',
             
            ),
@@ -70,8 +71,16 @@ class _HomepageState extends State<Homepage> {
               isLabelVisible: false,
                  child: SizedBox(
                   height: 30,
-                  child: Image.asset('assets/callicon.png'))),
+                  child: Image.asset('assets/icon-call.png'))),
              label: 'Contact',
+           ),
+            NavigationDestination(
+             icon:  Badge(
+              isLabelVisible: false,
+                 child: SizedBox(
+                  height: 30,
+                  child: Image.asset('assets/icon-video.png'))),
+             label: 'video',
            ),
          ],
        ),

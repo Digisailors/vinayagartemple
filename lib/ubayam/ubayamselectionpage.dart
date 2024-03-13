@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sreeselvavinayagartemple/Annadhanam/annathanam_date_selection.dart';
@@ -12,6 +11,7 @@ import 'package:sreeselvavinayagartemple/hall_booking/listouteventpage.dart';
 import 'package:sreeselvavinayagartemple/profile/profilecheckPage.dart';
 import 'package:sreeselvavinayagartemple/themes/font_height.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class UbayamSelectionPage extends StatefulWidget {
   const UbayamSelectionPage({super.key});
@@ -24,6 +24,7 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
   List<int> selectedIndices = [];
   int? ubayamBookingId;
   String? ubayamSetingId;
+  String? Ubayamurl;
 
   late Future<Ubayamlistdetailmodel> ubayamSettingList;
 
@@ -41,7 +42,7 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
 
   DateTime selectedDate = DateTime.now();
   List<Map<String, String>> familyFields = [];
-
+  List<FamilyDetail> familyDetails = [];
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -75,6 +76,23 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
     }
   }
 
+  void initiatePayment() {
+    const paymentUrl = 'https://ipay88-payment-url';
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => WebView(
+            initialUrl: paymentUrl,
+            javascriptMode: JavascriptMode.unrestricted,
+            navigationDelegate: (NavigationRequest request) {
+              if (request.url.startsWith(Ubayamurl!)) {
+                final success = // ... parsing logic
+                    Navigator.of(context).pop(); // Close web view
+                // Update Flutter UI based on 'success'
+                return NavigationDecision.prevent;
+              }
+              return NavigationDecision.navigate;
+            })));
+  }
+
   Future<Ubayamlistdetailmodel> geUbayamlist() async {
     try {
       final response = await http.get(Uri.parse(
@@ -103,14 +121,8 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
     }
 
     try {
-      List<Map<String, String?>> familyDetailsList = [];
-
-      for (var familyDetail in familyFields) {
-        familyDetailsList.add({
-          'name': familyDetail['name'],
-          'relationship': familyDetail['relationship'],
-        });
-      }
+      List<Map<String, dynamic>> familyDetailsJson =
+          familyDetails.map((detail) => detail.toJson()).toList();
 
       final response = await http.post(
         Uri.parse(
@@ -126,33 +138,27 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
           "address": address.text,
           "description": description.text,
           "amount": amount.text,
-          "family_details": familyFields,
+          "family_details": familyDetailsJson,
         }),
         headers: {'Content-Type': 'application/json'},
       );
-      print(loginId);
-      print(ubayamSetingId);
-      print(dateController.text);
-      print(namedonator.text);
-      print(email.text);
-      print(phonenos.text);
-      print(icnumbers.text);
-      print(address.text);
-      print(description.text);
-      print(amount.text);
-      print(familyDetailsList);
+
+      print(familyDetailsJson);
 
       if (response.statusCode == 200) {
+        print(response.body);
         final Map<String, dynamic> responseData = json.decode(response.body);
         ubayamBookingId = responseData['data']['ubayam_booking_id'];
+        Ubayamurl = responseData['data']['url'];
+
         print(response.body);
         //final Map<String, dynamic> data = json.decode(response.body);
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('Donationed successfully')));
-             String url = 'https://rajamariammanapi.grasp.com.my/public/ubayam/ubayam_payment_process/$ubayamBookingId/$loginId'; 
-    await launch(url);
-    
-      
+        initiatePayment();
+        // String url =
+        //     'https://rajamariammanapi.grasp.com.my/public/ubayam/ubayam_payment_process/$ubayamBookingId/$loginId';
+        // await launch(url);
       } else {
         print('Failed to post donation. Status Code: ${response.statusCode}');
       }
@@ -173,9 +179,8 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
 
     try {
       final initialResponse = await http.post(
-   Uri.parse(
-  'https://rajamariammanapi.grasp.com.my/public/ubayam/ubayam_payment_process/$ubayamBookingId/$loginId'),
-
+        Uri.parse(
+            'https://rajamariammanapi.grasp.com.my/public/ubayam/ubayam_payment_process/$ubayamBookingId/$loginId'),
         headers: {'Content-Type': 'application/json'},
       );
 
@@ -320,6 +325,8 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
                                             child: CustomRoundedTextFields(
                                               controller: amount,
                                               labelText: '',
+                                              keyboardType:
+                                                  TextInputType.number,
                                             )),
                                       ),
                                       ListTile(
@@ -338,6 +345,8 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
                                             child: CustomRoundedTextFields(
                                               controller: phonenos,
                                               labelText: '',
+                                              keyboardType:
+                                                  TextInputType.number,
                                             )),
                                       ),
                                       ListTile(
@@ -347,6 +356,8 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
                                             child: CustomRoundedTextFields(
                                               controller: icnumbers,
                                               labelText: '',
+                                              keyboardType:
+                                                  TextInputType.number,
                                             )),
                                       ),
                                       ListTile(
@@ -356,6 +367,8 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
                                             child: CustomRoundedTextFields(
                                               controller: email,
                                               labelText: '',
+                                              keyboardType:
+                                                  TextInputType.emailAddress,
                                             )),
                                       ),
                                       ListTile(
@@ -378,265 +391,32 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
                                               maxLines: 3,
                                             )),
                                       ),
-                                      // ListTile(
-                                      //   title: Text('Member Details'),
-                                      //   subtitle: CustomRoundedTextFields(
-                                      //     controller: familyFields,
-                                      //     labelText: '',
-                                      //   ),
-                                      // ),
-                                      // ListTile(
-                                      //   subtitle: DropdownButtonFormField(
-                                      //     items: const [
-                                      //       DropdownMenuItem(
-                                      //         child: Text('Mother'),
-                                      //         value: 'Mother',
-                                      //       ),
-                                      //       DropdownMenuItem(
-                                      //         child: Text('Father'),
-                                      //         value: 'Father',
-                                      //       ),
-                                      //       DropdownMenuItem(
-                                      //         child: Text('Siblings'),
-                                      //         value: 'Siblings',
-                                      //       ),
-                                      //       DropdownMenuItem(
-                                      //         child: Text('Spouse'),
-                                      //         value: 'Spouse',
-                                      //       ),
-                                      //       DropdownMenuItem(
-                                      //         child: Text('Uncle'),
-                                      //         value: 'Uncle',
-                                      //       ),
-                                      //       DropdownMenuItem(
-                                      //         child: Text('Aunty'),
-                                      //         value: 'Aunty',
-                                      //       ),
-                                      //     ],
-                                      //     onChanged: (value) {
-                                      //       setState(() {
-                                      //         relationship.text =
-                                      //             value.toString();
-                                      //       });
-                                      //     },
-                                      //     validator: (value) {
-                                      //       if (value == null) {
-                                      //         return 'Please select Relationship';
-                                      //       }
-                                      //       return null;
-                                      //     },
-                                      //     decoration: InputDecoration(
-                                      //       labelText: 'Relationship',
-                                      //       border: OutlineInputBorder(
-                                      //         borderSide: BorderSide.none,
-                                      //         borderRadius:
-                                      //             BorderRadius.circular(10.0),
-                                      //       ),
-                                      //       contentPadding:
-                                      //           EdgeInsets.symmetric(
-                                      //               horizontal: 16.0,
-                                      //               vertical: 14.0),
-                                      //       labelStyle:
-                                      //           TextStyle(color: Colors.black),
-                                      //     ),
-                                      //   ),
-                                      // ),
-ListView.builder(
-  shrinkWrap: true,
-  itemCount: familyFields.length,
-  itemBuilder: (context, index) {
-    String defaultRelationship = familyFields[index]['relationship'] ?? 'Select Relationship $index';
-    return Column(
-      children: [
-        ListTile(
-          title: TextFormField(
-            controller: TextEditingController(
-              text: familyFields[index]['name'],
-            ),
-            onChanged: (value) {
-              setState(() {
-                familyFields[index]['name'] = value;
-              });
-            },
-            decoration: InputDecoration(labelText: 'Name'),
-          ),
-          subtitle: DropdownButtonFormField(
-            value: defaultRelationship,
-            items: [
-              DropdownMenuItem(
-                child: Text('Select Relationship'),
-                value: 'Select Relationship $index',
-              ),
-              DropdownMenuItem(
-                child: Text('Mother'),
-                value: 'Mother $index',
-              ),
-              DropdownMenuItem(
-                child: Text('Father'),
-                value: 'Father $index',
-              ),
-              DropdownMenuItem(
-                child: Text('Siblings'),
-                value: 'Siblings $index',
-              ),
-              DropdownMenuItem(
-                child: Text('Spouse'),
-                value: 'Spouse $index',
-              ),
-              DropdownMenuItem(
-                child: Text('Uncle'),
-                value: 'Uncle $index',
-              ),
-              DropdownMenuItem(
-                child: Text('Aunty'),
-                value: 'Aunty $index',
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                familyFields[index]['relationship'] = value.toString();
-              });
-            },
-            decoration: InputDecoration(labelText: 'Relationship'),
-          ),
-        ),
-        SizedBox(height: 16),
-      ],
-    );
-  },
-),
-
-
-
-                                      Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: FloatingActionButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              Map<String, String>
-                                                  newFamilyDetails = {
-                                                'name': familydetails.text,
-                                                'relationship':
-                                                    relationship.text,
-                                              };
-
-                                              familyFields
-                                                  .add(newFamilyDetails);
-
-                                              familydetails.text = '';
-                                              relationship.text = '';
-                                            });
-                                          },
-                                          child: Icon(Icons.add),
-                                        ),
-
-                                        // FloatingActionButton(
-                                        //   onPressed: () {
-                                        //     setState(() {
-                                        //       Map<String, String>
-                                        //           newFamilyDetails = {
-                                        //         'name': familydetails.text,
-                                        //         'relationship':
-                                        //             relationship.text,
-                                        //       };
-
-                                        //       familyFields.add(
-                                        //           newFamilyDetails as Map<String, String>);
-
-                                        //       familyFields.add(
-                                        //         Column(
-                                        //           children: [
-                                        //             ListTile(
-                                        //               subtitle:
-                                        //                   CustomRoundedTextFields(
-                                        //                 controller:
-                                        //                     familydetails,
-                                        //                 labelText:
-                                        //                     'Member Details',
-                                        //               ),
-                                        //             ),
-                                        //             ListTile(
-                                        //               subtitle:
-                                        //                   DropdownButtonFormField(
-                                        //                 items: const [
-                                        //                   DropdownMenuItem(
-                                        //                     child:
-                                        //                         Text('Mother'),
-                                        //                     value: 'Mother',
-                                        //                   ),
-                                        //                   DropdownMenuItem(
-                                        //                     child:
-                                        //                         Text('Father'),
-                                        //                     value: 'Father',
-                                        //                   ),
-                                        //                   DropdownMenuItem(
-                                        //                     child: Text(
-                                        //                         'Siblings'),
-                                        //                     value: 'Siblings',
-                                        //                   ),
-                                        //                   DropdownMenuItem(
-                                        //                     child:
-                                        //                         Text('Spouse'),
-                                        //                     value: 'Spouse',
-                                        //                   ),
-                                        //                   DropdownMenuItem(
-                                        //                     child:
-                                        //                         Text('Uncle'),
-                                        //                     value: 'Uncle',
-                                        //                   ),
-                                        //                   DropdownMenuItem(
-                                        //                     child:
-                                        //                         Text('Aunty'),
-                                        //                     value: 'Aunty',
-                                        //                   ),
-                                        //                 ],
-                                        //                 onChanged: (value) {
-                                        //                   setState(() {
-                                        //                     relationship.text =
-                                        //                         value
-                                        //                             .toString();
-                                        //                   });
-                                        //                 },
-                                        //                 validator: (value) {
-                                        //                   if (value == null) {
-                                        //                     return 'Please select Relationship';
-                                        //                   }
-                                        //                   return null;
-                                        //                 },
-                                        //                 decoration:
-                                        //                     InputDecoration(
-                                        //                   labelText:
-                                        //                       'Relationship',
-                                        //                   border:
-                                        //                       OutlineInputBorder(
-                                        //                     borderSide:
-                                        //                         BorderSide.none,
-                                        //                     borderRadius:
-                                        //                         BorderRadius
-                                        //                             .circular(
-                                        //                                 10.0),
-                                        //                   ),
-                                        //                   contentPadding:
-                                        //                       EdgeInsets
-                                        //                           .symmetric(
-                                        //                               horizontal:
-                                        //                                   16.0,
-                                        //                               vertical:
-                                        //                                   14.0),
-                                        //                   labelStyle: TextStyle(
-                                        //                       color:
-                                        //                           Colors.black),
-                                        //                 ),
-                                        //               ),
-                                        //             ),
-                                        //             SizedBox(height: 16),
-                                        //           ],
-                                        //         ) as Map<String, String>,
-                                        //       );
-                                        //     });
-                                        //   },
-                                        //   child: Icon(Icons.add),
-                                        // ),
+                                      ListBody(
+                                        mainAxis: Axis.vertical,
+                                        children: familyDetails.map((detail) {
+                                          return FamilyDetailWidget(
+                                            familyDetail: detail,
+                                            onChanged:
+                                                (FamilyDetail updatedDetail) {
+                                              setState(() {
+                                                familyDetails[familyDetails
+                                                        .indexOf(detail)] =
+                                                    updatedDetail;
+                                              });
+                                            },
+                                          );
+                                        }).toList(),
+                                      ),
+                                      FloatingActionButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            familyDetails.add(FamilyDetail(
+                                                name: "",
+                                                relationship: "Mother"));
+                                          });
+                                        },
+                                        tooltip: 'Add Family Member',
+                                        child: Icon(Icons.add),
                                       ),
                                       hGap10,
                                     ],
@@ -675,6 +455,59 @@ ListView.builder(
         }
       },
     );
+  }
+}
+
+class FamilyDetail {
+  String name = "";
+  String relationship = "Mother";
+
+  FamilyDetail({required this.name, required this.relationship});
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'relationship': relationship,
+    };
+  }
+}
+
+class FamilyDetailWidget extends StatelessWidget {
+  final FamilyDetail familyDetail;
+  final ValueChanged<FamilyDetail> onChanged;
+
+  FamilyDetailWidget({required this.familyDetail, required this.onChanged});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: TextFormField(
+        initialValue: familyDetail.name,
+        onChanged: (value) {
+          familyDetail.name = value;
+          onChanged(familyDetail);
+        },
+        decoration: InputDecoration(labelText: 'Name'),
+      ),
+      subtitle: DropdownButtonFormField<String>(
+        value: familyDetail.relationship,
+        onChanged: (value) {
+          familyDetail.relationship = value!;
+          onChanged(familyDetail);
+        },
+        items: ["Mother", "Father", "Sister", "Brother"]
+            .map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+        decoration: InputDecoration(labelText: 'Relationship'),
+      ),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return familyDetail.toJson();
   }
 }
 
@@ -757,12 +590,13 @@ class CustomRoundedTextFields extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
   final int? maxLines;
-
+  final TextInputType keyboardType;
   const CustomRoundedTextFields({
     Key? key,
     required this.controller,
     required this.labelText,
     this.maxLines = 1,
+    this.keyboardType = TextInputType.text,
   }) : super(key: key);
 
   @override

@@ -14,7 +14,7 @@ class _ContactPageState extends State<ContactPage> {
   final TextEditingController _numberCtrl = TextEditingController();
   void initState() {
     super.initState();
-    _numberCtrl.text = "607223989";
+    _numberCtrl.text = "60333710909";
   }
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class _ContactPageState extends State<ContactPage> {
                   CardInfo(
                         leadingIcon: Icons.phone,
                         title: 'Mobile Phone',
-                        subtitle: '+60 7-223 3989',
+                        subtitle: '+60 3-3371 0909',
                         onTap: () {
                           FlutterPhoneDirectCaller.callNumber(_numberCtrl.text);
                         },
@@ -97,10 +97,11 @@ class _ContactPageState extends State<ContactPage> {
                       title: 'Address',
                       subtitle:
       
-                          'No.1A, Jalan Ungku Puan, 80000 Johor Bahru.',
+                          '124, Jln Tepi Sungai, Taman Teluk Pulai, 41100 Klang, Selangor, Malaysia',
       
                       onTap: () {
-                        launchUrl(Uri.parse('https://www.google.co.in/maps/place/1a,+Jalan+Ungku+Puan,+Bandar+Johor+Bahru,+80000+Johor+Bahru,+Johor,+Malaysia/@1.4591008,103.7613708,17z/data=!3m1!4b1!4m6!3m5!1s0x31da12dd4de98f45:0xa9775763dfac1fec!8m2!3d1.4591008!4d103.7639457!16s%2Fg%2F11j0rvfykz?entry=ttu'));
+                        launchUrl(Uri.parse('https://www.google.co.in/maps/dir/3.0454481,101.4388246/124,+Jln+Tepi+Sungai,+Taman+Teluk+Pulai,+41100+Klang,+Selangor,+Malaysia/@3.0452767,101.3526506,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31cc54a82ff7d153:0xb8ee0156a52b26f1!2m2!1d101.4350443!2d3.0452384?entry=ttu'));
+                       
                       }),
                   hGap10,
                   const Divider(
