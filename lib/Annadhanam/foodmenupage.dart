@@ -335,7 +335,7 @@ void showSnackBarMessage(String message) {
                               groupValue: selectedRadioValue,
                               onChanged: (value) {
                                 setState(() {
-                                  selectedRadioValue = value as int?;
+                                  selectedRadioValue = value;
                                 });
                               },
                             ),
@@ -384,7 +384,7 @@ void showSnackBarMessage(String message) {
                               groupValue: selectedRadioValue1,
                               onChanged: (value) {
                                 setState(() {
-                                  selectedRadioValue1 = value as int?;
+                                  selectedRadioValue1 = value;
                                 });
                               },
                             ),
@@ -431,7 +431,7 @@ void showSnackBarMessage(String message) {
                               groupValue: selectedRadioValue2,
                               onChanged: (value) {
                                 setState(() {
-                                  selectedRadioValue2 = value as int?;
+                                  selectedRadioValue2 = value;
                                 });
                               },
                             ),
@@ -481,7 +481,7 @@ void showSnackBarMessage(String message) {
                               groupValue: selectedRadioValue3,
                               onChanged: (value) {
                                 setState(() {
-                                  selectedRadioValue3 = value as int?;
+                                  selectedRadioValue3 = value;
                                 });
                               },
                             ),

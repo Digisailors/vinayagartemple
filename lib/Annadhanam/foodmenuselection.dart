@@ -129,7 +129,7 @@ class _FoodmenuSelectionState extends State<FoodmenuSelection> {
                                   groupValue: selectedRadioValue,
                                   onChanged: (value) {
                                     setState(() {
-                                      selectedRadioValue = value as int?;
+                                      selectedRadioValue = value;
                                     });
                                   },
                                 ),
@@ -200,7 +200,7 @@ class _FoodmenuSelectionState extends State<FoodmenuSelection> {
                                   groupValue: selectedRadioValue,
                                   onChanged: (value) {
                                     setState(() {
-                                      selectedRadioValue = value as int?;
+                                      selectedRadioValue = value;
                                     });
                                   },
                                 ),
@@ -275,7 +275,7 @@ class _FoodmenuSelectionState extends State<FoodmenuSelection> {
                                   groupValue: selectedRadioValue,
                                   onChanged: (value) {
                                     setState(() {
-                                      selectedRadioValue = value as int?;
+                                      selectedRadioValue = value;
                                     });
                                   },
                                 ),
@@ -344,7 +344,7 @@ class _FoodmenuSelectionState extends State<FoodmenuSelection> {
                                 groupValue: selectedRadioValue,
                                 onChanged: (value) {
                                   setState(() {
-                                    selectedRadioValue = value as int?;
+                                    selectedRadioValue = value;
                                   });
                                 },
                               ),

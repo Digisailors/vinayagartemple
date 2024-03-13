@@ -4,9 +4,7 @@ import 'package:sreeselvavinayagartemple/homeScreen/homenewscreen.dart';
 import 'package:sreeselvavinayagartemple/livestreaming_page/youtubepage.dart';
 import 'package:sreeselvavinayagartemple/profile/member_profile.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/material.dart';
 
-import 'secondhome.dart';
 
 class Homepage extends StatefulWidget {
   @override

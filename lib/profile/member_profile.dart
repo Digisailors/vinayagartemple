@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sreeselvavinayagartemple/Authentication/Login%20page/login.dart';
-import 'package:sreeselvavinayagartemple/Authentication/landing.dart';
 import 'package:sreeselvavinayagartemple/aa_controller/session_Controller.dart';
 import 'package:sreeselvavinayagartemple/aa_model/userprofile.dart';
 import 'package:http/http.dart' as http;

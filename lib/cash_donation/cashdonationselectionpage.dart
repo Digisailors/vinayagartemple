@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sreeselvavinayagartemple/themes/font_height.dart';
 
 class CashDonationChoosePage extends StatefulWidget {

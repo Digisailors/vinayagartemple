@@ -24,8 +24,8 @@ class SessionHandler extends StatelessWidget {
         useMaterial3: false,
         colorScheme: darkColorScheme.copyWith(primary: Colors.red),
         textTheme: TextTheme(
-          bodyText1: TextStyle(color: Colors.black),
-          bodyText2: TextStyle(color: Colors.black),
+          bodyLarge: TextStyle(color: Colors.black),
+          bodyMedium: TextStyle(color: Colors.black),
         ),
       ),
       home: LandingPage (),

@@ -1,9 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sreeselvavinayagartemple/Launchpages/launch2.dart';
 import 'package:sreeselvavinayagartemple/Launchpages/launchnewpage.dart';
-import 'package:sreeselvavinayagartemple/homeScreen/homepage.dart';
 import 'package:sreeselvavinayagartemple/themes/font_height.dart';
 import 'package:sreeselvavinayagartemple/widgets/customtextform.dart';
 
