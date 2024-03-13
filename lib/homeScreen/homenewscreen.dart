@@ -35,10 +35,8 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
   List<YoutubeList>? youtubeList;
   static const List<String> sampleImages = [
     'assets/vinayagar.jpeg',
-  'assets/vinayagar.jpeg',
-    // 'assets/mainslider2.jpeg',
-    //'assets/mainslider3.jpeg',
-    // 'assets/mainsliders.jpg',
+    'assets/sv44.jpg',
+    'assets/sv1.jpg',
   ];
   @override
   void initState() {
@@ -79,562 +77,380 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFEFC4),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                Container(
-                  color: Colors.red,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.06,
-                      ),
-                      const Center(
-                        child: FittedBox(
-                          child: Text(
-                            'அருள்மிகு இராஜமாரியம்மன் தேவஸ்தானம்',
+//        appBar: PreferredSize(
+//   preferredSize: Size.fromHeight(kToolbarHeight + 120),
+//   child: AppBar(
+//     actions: [
+//       IconButton(
+//         onPressed: () {},
+//         icon: Image.asset('assets/language.png')
+//       ),
+//     ],
+//     shape: RoundedRectangleBorder(
+//       borderRadius: BorderRadius.only(
+//         bottomLeft: Radius.circular(22),
+//         bottomRight: Radius.circular(22),
+//       ),
+//     ),
+
+//     flexibleSpace: Container(
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.only(
+//         bottomLeft: Radius.circular(22),
+//         bottomRight: Radius.circular(22)
+//       ),
+//         image: DecorationImage(
+//           image: AssetImage("assets/hometopbar1.jpg"),
+//           fit: BoxFit.fill,
+//            alignment: Alignment.centerRight,
+//         ),
+//       ),
+//     ),
+//   ),
+// ),
+        backgroundColor: Color.fromARGB(255, 201, 234, 251),
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: Color.fromARGB(255, 201, 234, 251),
+              shape: ContinuousRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(22),
+                    bottomRight: Radius.circular(22)),
+              ),
+              expandedHeight: 200,
+              flexibleSpace: FlexibleSpaceBar(
+                centerTitle: false,
+                title: Padding(
+                  padding: const EdgeInsets.only(top: 80, right: 85),
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'SREE SELVA VINAYAGAR ',
+                        style: TextStyle(fontSize: 14, color: Colors.white),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'TEMPLE',
                             style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          fit: BoxFit.scaleDown,
-                        ),
-                      ),
-                      const Center(
-                        child: FittedBox(
-                          child: Text(
-                            ' ஜோகூர் பாரு 1911 ஆம் ஆண்டு முதல்',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          fit: BoxFit.scaleDown,
-                        ),
-                      ),
-                      const Center(
-                        child: FittedBox(
-                          child: Text(
-                            'ARULMIGU RAJAMARIAMMAN DEVASTHANAM ',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          fit: BoxFit.scaleDown,
-                        ),
-                      ),
-                      const Center(
-                        child: FittedBox(
-                          child: Text(
-                            'Johor Bahru Since 1911',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          fit: BoxFit.scaleDown,
-                        ),
-                      ),
-                      hGap5,
-                      Column(
-                        children: [
-                          // Container(
-
-                          Stack(
-                            alignment: Alignment.topCenter,
-                            children: [
-                              Column(
-                                children: [
-                                  Container(
-                                    height: 40,
-                                    width: double.infinity,
-                                  ),
-                                  Container(
-                                    height: 40,
-                                    width: double.infinity,
-                                    decoration: const ShapeDecoration(
-                                      color: Color.fromARGB(255, 255, 239, 196),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(22),
-                                          topRight: Radius.circular(22),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Container(
-                                width: 80,
-                                height: 80,
-                                decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 239, 196),
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(50),
-                                        topRight: Radius.circular(50))),
-                                child: Image.asset(
-                                 'assets/vinayagar.jpeg',
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          Container(
-                            // width: MediaQuery.of(context).size.width * 3,
-                            color: const Color.fromARGB(255, 255, 239, 196),
-
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  // FanCarouselImageSlider(
-                                  //   currentItemShadow: [
-                                  //     BoxShadow(blurRadius: 0)
-                                  //   ],
-                                  //   imagesLink: sampleImages,
-                                  //   isAssets: true,
-                                  //   autoPlay: true,
-                                  //   sliderHeight: 450,
-                                  //   imageRadius: 25,
-                                  //   imageFitMode: BoxFit.fill,
-                                  // ),
-                                  CarouselSlider.builder(
-                                    options: CarouselOptions(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.29,
-                                      aspectRatio: 16 / 9,
-                                      viewportFraction: 0.8,
-                                      initialPage: 0,
-                                      enableInfiniteScroll: true,
-                                      reverse: false,
-                                      autoPlay: true,
-                                      autoPlayInterval:
-                                          const Duration(seconds: 2),
-                                      autoPlayAnimationDuration:
-                                          const Duration(milliseconds: 800),
-                                      autoPlayCurve: Curves.fastOutSlowIn,
-                                      enlargeCenterPage: true,
-                                      enlargeFactor: 0.2,
-                                      scrollDirection: Axis.horizontal,
-                                      onPageChanged: (index, reason) {},
-                                    ),
-                                    itemCount: sampleImages.length,
-                                    itemBuilder: (BuildContext context,
-                                        int index, int realIndex) {
-                                      return Builder(
-                                        builder: (BuildContext context) {
-                                          return ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(22.0),
-                                            child: Container(
-                                              width: double.infinity,
-                                              //   margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage(
-                                                      sampleImages[index]),
-                                                  fit: BoxFit.fill,
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                  hGap10,
-                                  const Align(
-                                    alignment: Alignment.bottomLeft,
-                                    child: Text(
-                                      'Pooja Details',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontFamily: 'Inter',
-                                        fontWeight: FontWeight.w500,
-                                        height: 0,
-                                      ),
-                                    ),
-                                  ),
-                                  hGap10,
-                                  SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Row(
-                                      children: List.generate(
-                                        yourItemList.length,
-                                        (index) => HorizontalItemWidget(
-                                          imagePath:
-                                              yourItemList[index].imagePath,
-                                          itemName:
-                                              yourItemList[index].itemName,
-                                          onTap: () {
-                                            if (yourItemList[index].itemName ==
-                                                'Time') {
-                                              Get.to(
-                                                  () => const Poojatimeing());
-                                            } else if (yourItemList[index]
-                                                    .itemName ==
-                                                'Festivals') {
-                                              Get.to(
-                                                  () => const FestivalPage());
-                                            } else if (yourItemList[index]
-                                                    .itemName ==
-                                                'Price') {
-                                              Get.to(() => const PriceList());
-                                            } else if (yourItemList[index]
-                                                    .itemName ==
-                                                'List') {
-                                              Get.to(() => const PoojaList());
-                                            }
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  const Align(
-                                    alignment: Alignment.bottomLeft,
-                                    child: Text(
-                                      'Devotee Services',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontFamily: 'Inter',
-                                        fontWeight: FontWeight.w500,
-                                        height: 0,
-                                      ),
-                                    ),
-                                  ),
-                                  hGap10,
-                                  SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Row(
-                                      children: List.generate(
-                                        yourItemLists.length,
-                                        (index) => HorizontalItemWidget1(
-                                          imagePaths:
-                                              yourItemLists[index].imagePaths,
-                                          itemNames:
-                                              yourItemLists[index].itemNames,
-                                          onTaps: () {
-                                            if (yourItemLists[index]
-                                                    .itemNames ==
-                                                'Ubayam') {
-                                              Get.to(() =>
-                                                  const UbayamSelectionPage());
-                                            } else if (yourItemLists[index]
-                                                    .itemNames ==
-                                                'Annathanam') {
-                                              Get.to(() =>
-                                                  const AnnathanamDateSelection());
-                                            } else if (yourItemLists[index]
-                                                    .itemNames ==
-                                                'Hall Booking') {
-                                              Get.to(
-                                                  () => HallDateSectionPage());
-                                            } else if (yourItemLists[index]
-                                                    .itemNames ==
-                                                'Cash Donation') {
-                                              Get.to(() =>
-                                                  const DonationNewlistPage());
-                                            }
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  hGap10,
-                                  const Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Feature Videos",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20,
-                                          fontFamily: 'Inter',
-                                          fontWeight: FontWeight.w500,
-                                          height: 0,
-                                        ),
-                                      )),
-                                  SizedBox(
-                                      height: 170,
-                                      width: double.infinity,
-                                      child: youtubeList == null
-                                          ? const Center(
-                                              child:
-                                                  CircularProgressIndicator(),
-                                            )
-                                          : ListView.builder(
-                                              scrollDirection: Axis.horizontal,
-                                              itemCount: youtubeList!.length,
-                                              itemBuilder: (context, index) {
-                                                return Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 8.0,
-                                                          right: 8.0),
-                                                  child: SizedBox(
-                                                    width: 240,
-                                                    height: double.infinity,
-                                                    child: CustomVideoPlayer(
-                                                      link: youtubeList![index]
-                                                              .url ??
-                                                          '',
-                                                    ),
-                                                  ),
-                                                );
-                                              },
-                                            )),
-
-                                  hGap10,
-                                  const Align(
-                                    alignment: Alignment.bottomLeft,
-                                    child: Text(
-                                      'Announcement',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontFamily: 'Inter',
-                                        fontWeight: FontWeight.w500,
-                                        height: 0,
-                                      ),
-                                    ),
-                                  ),
-
-                                  InkWell(
-                                    onTap: () {},
-                                    child: Card(
-                                      elevation: 6,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12)),
-                                      child: Container(
-                                        height: 300,
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(12)),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              height: 180,
-                                              decoration: const BoxDecoration(
-                                                  color: Color.fromARGB(
-                                                      255, 196, 146, 146),
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12)),
-                                                  image: DecorationImage(
-                                                    image: AssetImage(
-                                                      'assets/vinayagar.jpeg',
-                                                    ),
-                                                    fit: BoxFit.fill,
-                                                  )),
-                                            ),
-                                            const Padding(
-                                              padding: EdgeInsets.only(
-                                                  left: 15.0, top: 10),
-                                              child: Text('22/02/2024'),
-                                            ),
-                                            const Padding(
-                                              padding: EdgeInsets.only(
-                                                  left: 10.0,
-                                                  top: 10,
-                                                  right: 10),
-                                              child: Text(
-                                                  'The Arulmigu Rajamariamman Temple was founded by Mr Kootha Perumal Vandayar who wanted a place to worship for the Hindus of Johor Bahru'),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      const Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 10.0, right: 10, bottom: 10),
-                                        child: Text('Announcement list'),
-                                      ),
-                                      TextButton(
-                                        onPressed: () {},
-                                        child: const Text(
-                                          "View more",
-                                          textHeightBehavior:
-                                              TextHeightBehavior(),
-                                          style: TextStyle(
-                                              fontSize: 12, color: Colors.red),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Container(
-                                    height: 160,
-                                    width: double.infinity,
-                                    child: ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: 5,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        return Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 5.0),
-                                          child: InkWell(
-                                            onTap: () {},
-                                            child: Card(
-                                              elevation: 2,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(12),
-                                              ),
-                                              child: Container(
-                                                height: 160,
-                                                width: 180,
-                                                decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12)),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Container(
-                                                      height: 90,
-                                                      width: 180,
-                                                      decoration: const BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                                  topLeft: Radius
-                                                                      .circular(
-                                                                          12),
-                                                                  topRight: Radius
-                                                                      .circular(
-                                                                          12)),
-                                                          image:
-                                                              DecorationImage(
-                                                            image: AssetImage(
-                                                              'assets/vinayagar.jpeg',
-                                                            ),
-                                                            fit: BoxFit.fill,
-                                                          )),
-                                                    ),
-                                                    const Padding(
-                                                      padding:
-                                                          EdgeInsets.only(
-                                                        left: 5.0,
-                                                        top: 3,
-                                                      ),
-                                                      child: Text(
-                                                        '22/02/2024',
-                                                        style: TextStyle(
-                                                            fontSize: 8),
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      height: 29,
-                                                      width: 160,
-                                                      child: const Padding(
-                                                        padding:
-                                                            EdgeInsets
-                                                                .only(
-                                                                left: 5.0,
-                                                                top: 0,
-                                                                right: 2),
-                                                        child: Column(
-                                                          children: [
-                                                            Text(
-                                                              'The Arulmigu Rajamariamman Temple was founded by Mr Kootha Perumal Vandayar who wanted a place to worship for the Hindus of Johor Bahru',
-                                                              maxLines: 3,
-                                                              style: TextStyle(
-                                                                  fontSize: 8),
-                                                              overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ),
-
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      const Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 10.0, right: 10, bottom: 10),
-                                        child: Text('Other News'),
-                                      ),
-                                      TextButton(
-                                        onPressed: () {},
-                                        child: const Text(
-                                          "View more",
-                                          textHeightBehavior:
-                                              TextHeightBehavior(),
-                                          style: TextStyle(
-                                              fontSize: 12, color: Colors.red),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-
-                                  ListView.builder(
-                                    padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: 5,
-                          itemBuilder: (BuildContext context, int index) {
-                            final videos = '';
-                            return Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: VideoCard(
-                                  title: 'The Arulmigu Rajamariamman Temple was founded by Mr Kootha Perumal Vandayar who wanted a place to worship for the Hindus of Johor Bahru',
-                                  date:'22/02/2024',
-                                  imageUrl: 'assets/vinayagar.jpeg',
-                                  videoUrl: '',
-                                  onTap: () {
-                                  Get.to(()=>VideoNews(title: 'Arulmigu', description: 'testing', subTitle:'test', vidoeUrl: 'https://www.youtube.com/watch?v=Svmvj-zNBi8', date: '22/02', imageUrl: 'assets/mainslider1.jpg', index: index, id: ''));
-                                  },
-                                ));
-                          },
-                        )]))),
-
-                                 
-                                ],
-                              ),
-               ] ),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
-                    ],
+                    ),
                   ),
-                ));
-            
-            
-   
+                ),
+                background: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                  ),
+                  child: Image.asset(
+                    'assets/hometopbar.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+            SliverList(
+                delegate: SliverChildListDelegate([
+              Column(
+                children: [
+                  Container(
+                      color: Color(0xCEEEFF),
+                      child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                hGap10,
+                                const Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(
+                                    'Categories',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w300,
+                                      height: 0,
+                                    ),
+                                  ),
+                                ),
+                                hGap10,
+                                SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: List.generate(
+                                      yourItemList.length,
+                                      (index) => HorizontalItemWidget(
+                                        imagePath:
+                                            yourItemList[index].imagePath,
+                                        itemName: yourItemList[index].itemName,
+                                        onTap: () {
+                                          if (yourItemList[index].itemName ==
+                                              'Time') {
+                                            Get.to(() => const Poojatimeing());
+                                          } else if (yourItemList[index]
+                                                  .itemName ==
+                                              'Festivals') {
+                                            Get.to(() => const FestivalPage());
+                                          } else if (yourItemList[index]
+                                                  .itemName ==
+                                              'Price') {
+                                            Get.to(() => const PriceList());
+                                          } else if (yourItemList[index]
+                                                  .itemName ==
+                                              'List') {
+                                            Get.to(() => const PoojaList());
+                                          }
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                hGap10,
+                                SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: List.generate(
+                                      yourItemLists.length,
+                                      (index) => HorizontalItemWidget1(
+                                        imagePaths:
+                                            yourItemLists[index].imagePaths,
+                                        itemNames:
+                                            yourItemLists[index].itemNames,
+                                        onTaps: () {
+                                          if (yourItemLists[index].itemNames ==
+                                              'Ubayam') {
+                                            Get.to(() =>
+                                                const UbayamSelectionPage());
+                                          } else if (yourItemLists[index]
+                                                  .itemNames ==
+                                              'Annathanam') {
+                                            Get.to(() =>
+                                                const AnnathanamDateSelection());
+                                          } else if (yourItemLists[index]
+                                                  .itemNames ==
+                                              'Hall Booking') {
+                                            Get.to(() => HallDateSectionPage());
+                                          } else if (yourItemLists[index]
+                                                  .itemNames ==
+                                              'Cash Donation') {
+                                            Get.to(() =>
+                                                const DonationNewlistPage());
+                                          }
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                hGap10,
+                                const Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Feature Videos",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontFamily: 'Inter',
+                                        fontWeight: FontWeight.w500,
+                                        height: 0,
+                                      ),
+                                    )),
+                                SizedBox(
+                                    height: 170,
+                                    width: double.infinity,
+                                    child: youtubeList == null
+                                        ? const Center(
+                                            child:
+                                                CircularProgressIndicator(),
+                                          )
+                                        : ListView.builder(
+                                            scrollDirection:
+                                                Axis.horizontal,
+                                            itemCount:
+                                                youtubeList!.length,
+                                            itemBuilder:
+                                                (context, index) {
+                                              return Padding(
+                                                padding:
+                                                    const EdgeInsets
+                                                        .only(
+                                                        left: 8.0,
+                                                        right: 8.0),
+                                                child: SizedBox(
+                                                  width: 240,
+                                                  height: double
+                                                      .infinity,
+                                                  child:
+                                                      CustomVideoPlayer(
+                                                    link: youtubeList![
+                                                                index]
+                                                            .url ??
+                                                        '',
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          )),
+                                hGap10,
+
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 10.0, right: 10, bottom: 10),
+                                      child: Text(
+                                        'Announcement',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w300,
+                                          height: 0,
+                                        ),
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {},
+                                      child: const Text(
+                                        "View more",
+                                        textHeightBehavior:
+                                            TextHeightBehavior(),
+                                        style: TextStyle(
+                                            fontSize: 16, color: Colors.black,fontWeight: FontWeight.w300, fontFamily: 'Poppins',),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 180,
+                                  width: double.infinity,
+                                  child: ListView.builder(
+                                    shrinkWrap: true,
+                                    padding: EdgeInsets.zero,
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: 5,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 5.0),
+                                        child: InkWell(
+                                          onTap: () {},
+                                          child: Stack(
+                                            children: [
+                                              Container(
+                                                height: 210,
+                                                width: 190,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(12),
+                                                  image: DecorationImage(
+                                                    image: AssetImage(
+                                                        'assets/sv13.jpg'),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                              Positioned(
+                                                bottom: 0,
+                                                left: 0,
+                                                child: Container(
+                                                  height: 60,
+                                                  width: 190,
+                                                  color: Colors.black
+                                                      .withOpacity(0.5),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets
+                                                        .symmetric(
+                                                        horizontal: 8.0),
+                                                    child: Text(
+                                                      ' SREE SELVA VINAYAGA TEMPLE',
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          color: Colors.white),
+                                                      maxLines: 3,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 10.0, right: 10, bottom: 10),
+                                      child: Text('Other News'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {},
+                                      child: const Text(
+                                        "View more",
+                                        textHeightBehavior:
+                                            TextHeightBehavior(),
+                                         style: TextStyle(
+                                            fontSize: 16, color: Colors.black,fontWeight: FontWeight.w300, fontFamily: 'Poppins',),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemCount: 5,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    final videos = '';
+                                    return Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: VideoCard(
+                                          title:
+                                              'The Arulmigu Rajamariamman Temple was founded by Mr Kootha Perumal Vandayar who wanted a place to worship for the Hindus of Johor Bahru',
+                                          date: '22/02/2024',
+                                          imageUrl: 'assets/vinayagar.jpeg',
+                                          videoUrl: '',
+                                          onTap: () {
+                                            Get.to(() => VideoNews(
+                                                title: 'Arulmigu',
+                                                description: 'testing',
+                                                subTitle: 'test',
+                                                vidoeUrl:
+                                                    'https://www.youtube.com/watch?v=Svmvj-zNBi8',
+                                                date: '22/02',
+                                                imageUrl:
+                                                    'assets/mainslider1.jpg',
+                                                index: index,
+                                                id: ''));
+                                          },
+                                        ));
+                                  },
+                                )
+                              ]))),
+                ],
+              ),
+            ]))
+          ],
+        ));
   }
 }
 
@@ -668,15 +484,11 @@ class _HorizontalItemWidgetState extends State<HorizontalItemWidget> {
               widget.onTap();
             },
             child: Card(
-              elevation: 5,
-              shape: const CircleBorder(side: BorderSide.none),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               child: Container(
                 height: 60,
                 width: 60,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: widget.color ?? Colors.white,
-                ),
+                
                 child: Padding(
                   padding: const EdgeInsets.all(8),
                   child: Center(child: Image.asset(widget.imagePath)),
@@ -689,7 +501,7 @@ class _HorizontalItemWidgetState extends State<HorizontalItemWidget> {
             widget.itemName,
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontFamily: 'serif', fontWeight: FontWeight.w400),
+                fontFamily: 'Poppins', fontWeight: FontWeight.w200),
           ),
         ],
       ),
@@ -712,19 +524,19 @@ class ItemModel {
 List<ItemModel> yourItemList = [
   ItemModel(
     color: Colors.red,
-    imagePath: 'assets/vinayagar.jpeg',
+    imagePath: 'assets/htime.png',
     itemName: 'Time'.tr,
   ),
   ItemModel(
-    imagePath: 'assets/vinayagar.jpeg',
+    imagePath: 'assets/hfestival.png',
     itemName: 'Festivals'.tr,
   ),
   ItemModel(
-    imagePath: 'assets/vinayagar.jpeg',
+    imagePath: 'assets/hprice.png',
     itemName: 'Price'.tr,
   ),
   ItemModel(
-    imagePath: 'assets/vinayagar.jpeg',
+    imagePath: 'assets/hlist.png',
     itemName: 'List'.tr,
   ),
 ];
@@ -759,16 +571,17 @@ class _HorizontalItemWidget1State extends State<HorizontalItemWidget1> {
                 widget.onTaps();
               },
               child: Card(
-                elevation: 5,
-                shape: const CircleBorder(side: BorderSide.none),
-                child: Container(
-                  height: 60,
-                  width: 60,
-                  decoration: const BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.white),
-                  child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Center(child: Image.asset(widget.imagePaths))),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 60,
+                      width: 60,
+                      child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(child: Image.asset(widget.imagePaths))),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -776,7 +589,7 @@ class _HorizontalItemWidget1State extends State<HorizontalItemWidget1> {
             Text(
               widget.itemNames,
               style: const TextStyle(
-                  fontFamily: 'serif', fontWeight: FontWeight.w400),
+                  fontFamily: 'Poppins', fontWeight: FontWeight.w200),
             ),
           ],
         ));
@@ -791,8 +604,16 @@ class ItemModels1 {
 }
 
 List<ItemModels1> yourItemLists = [
-  ItemModels1(imagePaths: 'assets/vinayagar.jpeg', itemNames: 'Ubayam'),
-  ItemModels1(imagePaths: 'assets/vinayagar.jpeg', itemNames: 'Annathanam'),
-  ItemModels1(imagePaths: 'assets/vinayagar.jpeg', itemNames: 'Cash Donation'),
-  ItemModels1(imagePaths: 'assets/vinayagar.jpeg', itemNames: 'Hall Booking'),
+  ItemModels1(imagePaths: 'assets/hubayam.png', itemNames: 'Ubayam'),
+  ItemModels1(imagePaths: 'assets/hannadhanam.png', itemNames: 'Annathanam'),
+  ItemModels1(imagePaths: 'assets/hdonation.png', itemNames: 'Cash Donation'),
+  ItemModels1(imagePaths: 'assets/hhall.png', itemNames: 'Hall Booking'),
 ];
+/////////////////////////////////////
+///
+///
+///
+///
+///
+///
+

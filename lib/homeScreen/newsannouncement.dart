@@ -263,15 +263,15 @@ class VideoCard extends StatelessWidget {
           height: 120,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(12)),
+              color: Colors.blueAccent, borderRadius: BorderRadius.circular(12)),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 120,
-                width: 100,
+                height: 90,
+                width: 10,
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],
+                  color: Colors.grey[700],
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(12),
                       topRight: Radius.circular(0)),
@@ -292,7 +292,7 @@ class VideoCard extends StatelessWidget {
                         title,
                         maxLines: 5,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w200,fontFamily: 'Poppins'),
                       ),
                     ),
                     Spacer(), 
