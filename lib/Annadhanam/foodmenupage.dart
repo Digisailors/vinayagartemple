@@ -253,11 +253,27 @@ void showSnackBarMessage(String message) {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Color.fromARGB(255, 255, 239, 196),
-      key: _scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: Text('Annathanam'),
+         backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 10),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Annathanam'),
+      
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
       ),
       body: isLoading
           ? Center(child: CircularProgressIndicator())

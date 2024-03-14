@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sreeselvavinayagartemple/themes/font_height.dart';
 
-
 class Poojatimeing extends StatefulWidget {
   const Poojatimeing({super.key});
 
@@ -14,16 +13,15 @@ class _PoojatimeingState extends State<Poojatimeing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFEFC4),
-      appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: Center(
-            child: Text('Pooja Time'.tr),
-          ),
+      backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Pooja Time'),
           actions: [
             PopupMenuButton<int>(
-              icon:
-                  Icon(Icons.language, color: Color.fromARGB(255, 69, 67, 67)),
+              icon: Image.asset('assets/language.png'),
               itemBuilder: (context) => [
                 PopupMenuItem(
                     value: 1,
@@ -49,7 +47,23 @@ class _PoojatimeingState extends State<Poojatimeing> {
                         ))),
               ],
             )
-          ]),
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
+      ),
+     
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
@@ -104,43 +118,43 @@ class _PoojatimeingState extends State<Poojatimeing> {
                 title: 'Temple Opens'.tr,
                 time: '06:00 ',
                 times: 'am'.tr,
-                imagePath: 'assets/poojatiming1.png',
+                imagePath: 'assets/sv3.jpg',
               ),
               CustomCardWidget(
                   title: 'Padithara Abhishegam'.tr,
                   time: '06:30 ',
                   times: 'pm'.tr,
-                  imagePath: 'assets/poojatiming2.png'),
+                  imagePath: 'assets/sv1.jpg'),
               CustomCardWidget(
                   title: 'Morning Pooja'.tr,
                   time: '07:00',
                   times: ' am'.tr,
-                  imagePath: 'assets/poojatiming3.png'),
+                  imagePath: 'assets/sv2.jpg'),
               CustomCardWidget(
                   title: 'Noon Pooja'.tr,
                   time: '12:00 '.tr,
                   times: 'pm'.tr,
-                  imagePath: 'assets/poojatiming4.png'),
+                  imagePath: 'assets/sv3.jpg'),
               CustomCardWidget(
                   title: 'Evening Temple Opening'.tr,
                   time: '06:00 ',
                   times: 'pm'.tr,
-                  imagePath: 'assets/poojatiming5.png'),
+                  imagePath: 'assets/sv3.jpg'),
               CustomCardWidget(
                   title: 'Padithara Abhishegam'.tr,
                   time: '06:00',
                   times: 'pm'.tr,
-                  imagePath: 'assets/poojatiming1.png'),
+                  imagePath: 'assets/sv3.jpg'),
               CustomCardWidget(
                   title: 'Evening Pooja'.tr,
                   time: '07:00 ',
                   times: 'pm'.tr,
-                  imagePath: 'assets/poojatiming2.png'), 
+                  imagePath: 'assets/sv3.jpg'),
               CustomCardWidget(
                   title: 'Arthasama Pooja'.tr,
                   time: '09:00 '.tr,
                   times: 'pm'.tr,
-                  imagePath: 'assets/poojatiming3.png'),
+                  imagePath: 'assets/sv7.jpg'),
             ],
           ),
         ),

@@ -150,7 +150,7 @@ class _MemberProfileViewState extends State<MemberProfileView> {
           },
           child: Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.red,
+               backgroundColor: const Color(0xFF006CA7),
               title: const Text('Profile Page'),
               actions: [
                 // IconButton(
@@ -191,7 +191,7 @@ class _MemberProfileViewState extends State<MemberProfileView> {
                     width: double.infinity,
                     height: double.infinity,
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 255, 239, 196),
+                      color: Color.fromARGB(255, 201, 234, 251),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(22),
                         topRight: Radius.circular(22),
@@ -313,62 +313,9 @@ class _MemberProfileViewState extends State<MemberProfileView> {
                                               'Delete Account',
                                               style: TextStyle(
                                                   fontSize: 16,
-                                                  color: Colors.red),
+                                                  color:  Color(0xFF006CA7),),
                                             ))),
-                                    // Align(
-                                    //   alignment: Alignment.bottomCenter,
-                                    //   child: ListTile(
-                                    //     trailing: const Icon(
-                                    //       Icons.arrow_right_outlined,
-                                    //       size: 30,
-                                    //     ),
-                                    //     onTap: () {
-                                    //       showDialog(
-                                    //         context: context,
-                                    //         builder: (ctx) => AlertDialog(
-                                    //           actions: [
-                                    //             TextButton(
-                                    //                 onPressed: () async {
-                                    //                   Navigator.of(context)
-                                    //                       .pop();
-                                    //                   deleteAccount();
-                                    //                   await Get.offAll(
-                                    //                       LandingPage());
-
-                                    //                 },
-                                    //                 child: const Text(
-                                    //                   'Yes',
-                                    //                   style: TextStyle(
-                                    //                       color:
-                                    //                           Colors.red),
-                                    //                 )),
-                                    //             TextButton(
-                                    //                 onPressed: () {
-                                    //                   Navigator.of(ctx)
-                                    //                       .pop();
-                                    //                 },
-                                    //                 child: const Text(
-                                    //                   'No',
-                                    //                   style: TextStyle(
-                                    //                       color:
-                                    //                           Colors.red),
-                                    //                 ))
-                                    //           ],
-                                    //           title: const Text(
-                                    //               'Delete Account'),
-                                    //           content: const Text(
-                                    //               'Are you sure Delete your account?'),
-                                    //         ),
-                                    //       );
-                                    //     },
-                                    //     leading: const Icon(
-                                    //       Icons.error_outline,
-                                    //       color: Colors.red,
-                                    //     ),
-                                    //     title: const Text(
-                                    //         'If you want to delete your Account'),
-                                    //   ),
-                                    // ),
+                                   
                                   ],
                                 ),
                               ),
@@ -412,21 +359,7 @@ class _MemberProfileViewState extends State<MemberProfileView> {
                                       controller: emailcontroller,
                                       labelText: 'Email'),
                                   hGap40,
-                                  // TextFormField(
-                                  //   controller: nameController,
-                                  //   decoration: const InputDecoration(labelText: 'Name'),
-                                  // //initialValue: userprofile.data?.profileDetails?.name ?? '',
-                                  // ),
-                                  // TextFormField(
-                                  //   controller: usernameController,
-                                  //   decoration: const InputDecoration(labelText: 'user Name'),
-                                  //   //initialValue: userprofile.data?.profileDetails?.icNumber ?? '',
-                                  // ),
-                                  // TextFormField(
-                                  //   controller: emailcontroller,
-                                  //   decoration: const InputDecoration(labelText: 'Email'),
-                                  //   //initialValue: userprofile.data?.profileDetails?.email ?? '',
-                                  // ),
+                              
                                   Center(
                                     child: CustomElevatedButton(
                                       child: Text('Update'),

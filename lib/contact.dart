@@ -27,15 +27,28 @@ class _ContactPageState extends State<ContactPage> {
             return false;
           },
       child: Scaffold(
-        backgroundColor: Color(0xFFFFEFC4),
-        appBar: AppBar(
-          title: const Center(
-              child: Text(
-            'Contact Information',
-            style: h1,
-          )),
-          backgroundColor: Colors.red,
+              backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 10),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Center(child: Text('Contact Information')),
+      
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
         ),
+      ),
         body: SafeArea(child: Builder(builder: (context) {
           double screenWidth = MediaQuery.of(context).size.width;
           double screenHeight = MediaQuery.of(context).size.height;

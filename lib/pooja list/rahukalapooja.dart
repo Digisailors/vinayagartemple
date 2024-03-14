@@ -13,38 +13,55 @@ class RaguKalaPageState extends State<RaguKalaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Color(0xFFFFEFC4),
-      appBar: AppBar(
-        title: Text('RAHU KALA POOJA'.tr,style: h2,),
-        backgroundColor:Colors.red,
-        actions: [ PopupMenuButton<int>(
-                icon: Icon(Icons.language, color: Color.fromARGB(255, 69, 67, 67)),
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                      value: 1,
-                      child: TextButton(
-                          onPressed: () {
-                            var locale = const Locale('en', 'US');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'தமிழ்',
-                            style: hb3,
-                          ))),
-                  PopupMenuItem(
-                      value: 2,
-                      child: TextButton(
-
-                          onPressed: () {
-                            var locale = const Locale('ms', 'MS');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'English',
-                            style: hb3,
-                          ))),
-                ],
-              )]
+          backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('RAHU KALA POOJA'),
+          actions: [
+            PopupMenuButton<int>(
+              icon: Image.asset('assets/language.png'),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                    value: 1,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('en', 'US');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'தமிழ்',
+                          style: hb3,
+                        ))),
+                PopupMenuItem(
+                    value: 2,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('ms', 'MS');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'English',
+                          style: hb3,
+                        ))),
+              ],
+            )
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
       ),
       body:SingleChildScrollView(
         child: Padding(
@@ -61,7 +78,7 @@ class RaguKalaPageState extends State<RaguKalaPage> {
                             borderRadius: BorderRadius.circular(6)),
                         image: DecorationImage(
                             image: AssetImage(
-                              'assets/rahupooja.jpg',
+                              'assets/sv20.jpg',
                             ),
                             fit: BoxFit.cover)),
                   ),

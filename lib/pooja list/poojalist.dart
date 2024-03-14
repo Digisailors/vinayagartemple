@@ -9,6 +9,7 @@ import 'package:sreeselvavinayagartemple/pooja%20list/pradoshapooja.dart';
 import 'package:sreeselvavinayagartemple/pooja%20list/rahukalapooja.dart';
 import 'package:sreeselvavinayagartemple/themes/font_height.dart';
 
+
 class PoojaList extends StatefulWidget {
   const PoojaList({super.key});
 
@@ -25,16 +26,15 @@ class _PoojaListState extends State<PoojaList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFEFC4),
-      appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: Center(
-            child: Text('Pooja List'.tr),
-          ),
+       backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Pooja List'),
           actions: [
             PopupMenuButton<int>(
-              icon: const Icon(Icons.language,
-                  color: Color.fromARGB(255, 69, 67, 67)),
+              icon: Image.asset('assets/language.png'),
               itemBuilder: (context) => [
                 PopupMenuItem(
                     value: 1,
@@ -60,7 +60,22 @@ class _PoojaListState extends State<PoojaList> {
                         ))),
               ],
             )
-          ]),
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
@@ -76,55 +91,18 @@ class _PoojaListState extends State<PoojaList> {
                           borderRadius: BorderRadius.circular(6)),
                       image: DecorationImage(
                           image: AssetImage(
-                            'assets/ps1.jpeg',
+                            'assets/sv15.jpg',
                           ),
                           fit: BoxFit.fill)),
                 ),
               ),
-              // CarouselSlider.builder(
-              //   options: CarouselOptions(
-              //     height: MediaQuery.of(context).size.height * 0.26,
-              //     aspectRatio: 16 / 2,
-              //     viewportFraction: 0.8,
-              //     initialPage: 0,
-              //     enableInfiniteScroll: true,
-              //     reverse: true,
-              //     autoPlay: true,
-              //     autoPlayInterval: const Duration(seconds: 2),
-              //     autoPlayAnimationDuration: const Duration(milliseconds: 800),
-              //     autoPlayCurve: Curves.fastOutSlowIn,
-              //     enlargeCenterPage: true,
-              //     enlargeFactor: 0.3,
-              //     scrollDirection: Axis.horizontal,
-              //     onPageChanged: (index, reason) {},
-              //   ),
-              //   itemCount: imagePaths.length,
-              //   itemBuilder: (BuildContext context, int index, int realIndex) {
-              //     return Builder(
-              //       builder: (BuildContext context) {
-              //         return ClipRRect(
-              //           borderRadius: BorderRadius.circular(16.0),
-              //           child: Container(
-              //             width: MediaQuery.of(context).size.width * 1,
-              //             margin: const EdgeInsets.symmetric(horizontal: 5.0),
-              //             decoration: BoxDecoration(
-              //               image: DecorationImage(
-              //                 image: AssetImage(imagePaths[index]),
-              //                 fit: BoxFit.cover,
-              //               ),
-              //             ),
-              //           ),
-              //         );
-              //       },
-              //     );
-              //   },
-              // ),
+          
               CustomPojaCard(
                 title: 'Pournami Pooja'.tr,
-                imagePath: 'assets/poojatiming1.png',
-                child: const AutoSizeText(
+                imagePath: 'assets/sv16.jpg',
+                child: const Text(
                   'View Details',
-                  style: h3,
+                  style: hbl3,
                 ),
                 onPressed: () {
                   Get.to(() => const PournamiPooja());
@@ -132,50 +110,50 @@ class _PoojaListState extends State<PoojaList> {
               ),
               CustomPojaCard(
                   title: 'Ammavasai Pooja'.tr,
-                  imagePath: 'assets/poojatiming2.png',
+                  imagePath: 'assets/sv17.jpg',
                   child: const AutoSizeText(
                     'View Details',
-                    style: h3,
+                    style:hbl3,
                   ),
                   onPressed: () {
                     Get.to(() => const AmmavasaiPage());
                   }),
               CustomPojaCard(
                   title: 'Theipirai Astami Bairavar Pooja'.tr,
-                  imagePath: 'assets/poojatiming3.png',
+                  imagePath: 'assets/sv18.jpg',
                   child: const AutoSizeText(
                     'View Details',
-                    style: h3,
+                    style: hbl3,
                   ),
                   onPressed: () {
                     Get.to(() => const Bairawarpoja());
                   }),
               CustomPojaCard(
-                  title: 'Pradosha Pooja'.tr,
-                  imagePath: 'assets/poojatiming4.png',
+                  title: 'Pradosha Pooja19'.tr,
+                  imagePath: 'assets/sv19.jpg',
                   child: const AutoSizeText(
                     'View Details',
-                    style: h3,
+                    style: hbl3,
                   ),
                   onPressed: () {
                     Get.to(() => const PradoshaPoojaPage());
                   }),
               CustomPojaCard(
-                  title: 'Rahukala Pooja'.tr,
-                  imagePath: 'assets/poojatiming5.png',
+                  title: 'Rahukala Pooja20'.tr,
+                  imagePath: 'assets/sv20.jpg',
                   child: const AutoSizeText(
                     'View Details',
-                    style: h3,
+                    style: hbl3,
                   ),
                   onPressed: () {
                     Get.to(() => const RaguKalaPage());
                   }),
               CustomPojaCard(
                   title: 'Gho Pooja'.tr,
-                  imagePath: 'assets/poojatiming1.png',
+                  imagePath: 'assets/sv21.jpg',
                   child: const AutoSizeText(
                     'View Details',
-                    style: h3,
+                    style:hbl3,
                   ),
                   onPressed: () {
                     Get.to(() => const Gohpooja());
@@ -187,7 +165,8 @@ class _PoojaListState extends State<PoojaList> {
     );
   }
 }
-
+const TextStyle hbl3 =
+    TextStyle(fontSize: 12, color:Color(0xFF006CA7),   fontFamily: 'Poppins', fontWeight: FontWeight.w400,);
 class CustomPojaCard extends StatelessWidget {
   final String title;
   final String imagePath;
@@ -260,7 +239,7 @@ class CustomPojaCard extends StatelessWidget {
                       onPressed: onPressed,
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color(0xFFFF0000)), // Red color
+                            Color.fromARGB(255, 249, 238, 238)), // Red color
                         elevation: MaterialStateProperty.all<double>(4),
                         shape: MaterialStateProperty.all<OutlinedBorder>(
                           RoundedRectangleBorder(

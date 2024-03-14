@@ -81,7 +81,7 @@ class _ProfilePageState extends State<ProfilePage> {
       
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Color.fromARGB(255, 255, 0, 0),
+           backgroundColor: const Color(0xFF006CA7),
           elevation: 0,
           title: const Text('Profile'),
         ),
@@ -247,114 +247,17 @@ class _ProfilePageState extends State<ProfilePage> {
                                         maxFontSize: 20,
                                         style: TextStyle(color: Colors.black),
                                       ),
-                                      // subtitle: AutoSizeText(
-                                      //   snapshot.data!.data!.profileDetails!
-                                      //           .username ??
-                                      //       '',
-                                      //   minFontSize: 14,
-                                      //   maxLines: 1,
-                                      //   overflow: TextOverflow.ellipsis,
-                                      //   maxFontSize: 20,
-                                      // ),
+                                   
                                     ),
                                   ),
                                 ),
                                 hGap10,
-                                // Card(
-                                //   elevation: 3,
-                                //   child: Container(
-                                //     decoration: BoxDecoration(
-                                //       borderRadius: BorderRadius.circular(8),
-                                //       color: Colors.white,
-                                //     ),
-                                //     child: ListTile(
-                                //       leading: const Icon(
-                                //         Icons.calendar_month_outlined,
-                                //         color: Colors.black,
-                                //       ),
-                                //       title: AutoSizeText(
-                                //         snapshot.data!.data!.profileDetails!
-                                //                 .username ??
-                                //             '',
-                                //         minFontSize: 14,
-                                //         maxLines: 1,
-                                //         overflow: TextOverflow.ellipsis,
-                                //         maxFontSize: 20,
-                                //         style: TextStyle(color: Colors.black),
-                                //       ),
-                                //       // subtitle: AutoSizeText(
-                                //       //   snapshot.data!.data!.profileDetails!
-                                //       //           .username ??
-                                //       //       '',
-                                //       //   minFontSize: 14,
-                                //       //   maxLines: 1,
-                                //       //   overflow: TextOverflow.ellipsis,
-                                //       //   maxFontSize: 20,
-                                //       // ),
-                                //     ),
-                                //   ),
-                                // ),
+                                
       
-                                // hGap10,
-                                // Card(
-                                //   elevation: 3,
-                                //   child: Container(
-                                //     decoration: BoxDecoration(
-                                //       borderRadius: BorderRadius.circular(8),
-                                //       color: Colors.white,
-                                //     ),
-                                //     child: ListTile(
-                                //       leading: const Icon(
-                                //         Icons.person_3_outlined,
-                                //         color: Colors.black,
-                                //       ),
-                                //       title: AutoSizeText(
-                                //         'Male',
-                                //         minFontSize: 14,
-                                //         maxLines: 1,
-                                //         overflow: TextOverflow.ellipsis,
-                                //         maxFontSize: 20,
-                                //         style: TextStyle(color: Colors.black),
-                                //       ),
-                                //       // subtitle: AutoSizeText(
-                                //       //   snapshot.data!.data!.profileDetails!
-                                //       //           .username ??
-                                //       //       '',
-                                //       //   minFontSize: 14,
-                                //       //   maxLines: 1,
-                                //       //   overflow: TextOverflow.ellipsis,
-                                //       //   maxFontSize: 20,
-                                //       // ),
-                                //     ),
-                                //   ),
-                                // ),
+                             
                                 hGap10,
       
-                                // ListTile(
-                                //   leading: const Icon(Icons.mobile_friendly),
-                                //   title: const Text('Ic Number'),
-                                //   subtitle: AutoSizeText(
-                                //     snapshot.data!.data!.profileDetails!
-                                //             .icNumber ??
-                                //         '',
-                                //     style: const TextStyle(fontSize: 14),
-                                //     maxLines: 1,
-                                //     overflow: TextOverflow.ellipsis,
-                                //     maxFontSize: 24,
-                                //   ),
-                                // ),
-                                // ListTile(
-                                //   leading: const Icon(Icons.email),
-                                //   title: const Text('Email'),
-                                //   subtitle: AutoSizeText(
-                                //     snapshot.data!.data!.profileDetails!.email ??
-                                //         '',
-                                //     minFontSize: 14,
-                                //     maxLines: 1,
-                                //     overflow: TextOverflow.ellipsis,
-                                //     maxFontSize: 20,
-                                //   ),
-                                // ),
+                          
                               ],
                             ),
                           ),
@@ -404,13 +307,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                             Navigator.of(context).pop();
                                             deleteAccount();
                                             await Get.offAll(const LoginPage());
-                                            // final SharedPreferences prefs =
-                                            //     await SharedPreferences
-                                            //         .getInstance();
-                                            // prefs
-                                            //     .remove("currentUser")
-                                            //     .whenComplete(() => Get.offAll(
-                                            //         const LandingPage()));
+                                         
                                           },
                                           child: const Text(
                                             'Yes',

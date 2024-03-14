@@ -135,27 +135,46 @@ class _DonationNewlistPageState extends State<DonationNewlistPage> {
           return Form(
             key: formkey,
             child: Scaffold(
-              backgroundColor: const Color(0xFFFFEFC4),
-              appBar: AppBar(
-                backgroundColor: Colors.red,
-              ),
+                    backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 10),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Cash Donation'),
+      
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
+      ),
               body: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          "Cash Donation",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
+                      // const Padding(
+                      //   padding: EdgeInsets.all(8.0),
+                      //   child: Text(
+                      //     "Cash Donation",
+                      //     style: TextStyle(fontSize: 20),
+                      //   ),
+                      // ),
                       GridView.count(
-                        crossAxisCount: 2,
+                        crossAxisCount: 3,
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,
+                        physics:NeverScrollableScrollPhysics(),
                         children: List.generate(
                             snapshot.data!.data!.donationSettingList!.length ??
                                 0, (index) {
@@ -187,11 +206,11 @@ class _DonationNewlistPageState extends State<DonationNewlistPage> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          //color: Color.fromARGB(255, 103, 99, 99),
+                       
                           child: Column(
                             children: [
                               Card(
-                                  color: const Color(0xFFFFEFC4),
+                                  color: const Color(0xFFE4F5FF),
                                   child: Column(
                                     children: [
                                       hGap10,
@@ -332,15 +351,15 @@ class _CustomGridTileState extends State<CustomGridTile> {
               child: Stack(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.6,
-                    width: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    width: MediaQuery.of(context).size.width * 0.26,
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(widget.imagePath),
                           fit: BoxFit.cover,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(33),
                       ),
                     ),
                   ),
@@ -348,6 +367,7 @@ class _CustomGridTileState extends State<CustomGridTile> {
                     top: 0,
                     right: 0,
                     child: Checkbox(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       value: widget.selected,
                       onChanged: (value) {
                         setState(() {

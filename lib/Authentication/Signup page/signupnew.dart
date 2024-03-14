@@ -66,12 +66,27 @@ class _SignUpState extends State<SignUp> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-     
-       backgroundColor: const Color.fromARGB(255, 255, 239, 196),
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: const Text('SignUp'),
-
+       backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 10),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Sign Up'),
+      
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
       ),
       body:    Padding(
         padding: const EdgeInsets.all(8.0),

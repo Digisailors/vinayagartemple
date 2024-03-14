@@ -34,38 +34,55 @@ class _BairawarpojaState extends State<Bairawarpoja> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  const Color(0xFFFFEFC4),
-      appBar: AppBar(
-        title: Text('BAIRAWAR POOJA'.tr,style: h2,),
-        backgroundColor:Colors.red,
-        actions: [ PopupMenuButton<int>(
-                icon: const Icon(Icons.language, color: Color.fromARGB(255, 69, 67, 67)),
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                      value: 1,
-                      child: TextButton(
-                          onPressed: () {
-                            var locale = const Locale('en', 'US');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'தமிழ்',
-                            style: hb3,
-                          ))),
-                  PopupMenuItem(
-                      value: 2,
-                      child: TextButton(
-
-                          onPressed: () {
-                            var locale = const Locale('ms', 'MS');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'English',
-                            style: hb3,
-                          ))),
-                ],
-              )]
+         backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('BAIRAWAR POOJA'),
+          actions: [
+            PopupMenuButton<int>(
+              icon: Image.asset('assets/language.png'),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                    value: 1,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('en', 'US');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'தமிழ்',
+                          style: hb3,
+                        ))),
+                PopupMenuItem(
+                    value: 2,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('ms', 'MS');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'English',
+                          style: hb3,
+                        ))),
+              ],
+            )
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -82,7 +99,7 @@ class _BairawarpojaState extends State<Bairawarpoja> {
                           borderRadius: BorderRadius.circular(6)),
                       image: const DecorationImage(
                           image: AssetImage(
-                            'assets/b2.jpg',
+                           'assets/sv18.jpg',
                           ),
                           fit: BoxFit.fill)),
                 ),

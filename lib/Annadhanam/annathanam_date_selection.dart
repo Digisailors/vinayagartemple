@@ -96,13 +96,15 @@ class _AnnathanamDateSelectionState extends State<AnnathanamDateSelection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: const AutoSizeText('Annathanam'),
+ backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 10),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Pooja Price'),
           actions: [
             PopupMenuButton<int>(
-              icon:
-                  const Icon(Icons.language, color: Color.fromARGB(255, 69, 67, 67)),
+              icon: Image.asset('assets/language.png'),
               itemBuilder: (context) => [
                 PopupMenuItem(
                     value: 1,
@@ -111,8 +113,8 @@ class _AnnathanamDateSelectionState extends State<AnnathanamDateSelection> {
                           var locale = const Locale('en', 'US');
                           Get.updateLocale(locale);
                         },
-                        child: const AutoSizeText(
-                          'Tamil',
+                        child: const Text(
+                          'தமிழ்',
                           style: hb3,
                         ))),
                 PopupMenuItem(
@@ -122,13 +124,28 @@ class _AnnathanamDateSelectionState extends State<AnnathanamDateSelection> {
                           var locale = const Locale('ms', 'MS');
                           Get.updateLocale(locale);
                         },
-                        child: const AutoSizeText(
+                        child: const Text(
                           'English',
                           style: hb3,
                         ))),
               ],
             )
-          ]),
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -286,7 +303,7 @@ class CustomElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFFFF0000),
+        backgroundColor: const Color(0xFF006CA7),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),

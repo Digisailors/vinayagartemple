@@ -259,16 +259,16 @@ class VideoCard extends StatelessWidget {
         onTap: onTap,
         child: Container(
          
-          height: 120,
+          height: 100,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.blueAccent, borderRadius: BorderRadius.circular(12)),
+              color: Color.fromARGB(255, 185, 199, 225), borderRadius: BorderRadius.circular(12)),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 90,
-                width: 10,
+                height: 100,
+                width: 90,
                 decoration: BoxDecoration(
                   color: Colors.grey[700],
                   borderRadius: BorderRadius.only(

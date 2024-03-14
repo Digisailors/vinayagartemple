@@ -9,38 +9,39 @@ const Color cardBackground = Color.fromARGB(255, 87, 13, 8);
 
 /* <----------- Text Style ------------> */
 const TextStyle h1 =
-    TextStyle(fontSize: 22, color: Colors.white,  fontFamily: 'Inter',
+    TextStyle(fontSize: 22, color: Colors.white,  fontFamily: 'Poppins',
               fontWeight: FontWeight.w400,
           );
 
 const TextStyle h2 =
     TextStyle( color: Colors.white,
               fontSize: 20,
-              fontFamily: 'Inter',
+              fontFamily: 'Poppins',
               fontWeight: FontWeight.w400,
           );
           const TextStyle hb2 =
     TextStyle( color: Colors.black,
               fontSize: 20,
-              fontFamily: 'Inter',
+              fontFamily: 'Poppins',
               fontWeight: FontWeight.w400,
           );
     const TextStyle h3 =
-    TextStyle(fontSize: 12, color: Colors.white,   fontFamily: 'Inter', fontWeight: FontWeight.w400,);
+    TextStyle(fontSize: 12, color: Colors.white,   fontFamily: 'Poppins', fontWeight: FontWeight.w400,);
+   
     const TextStyle h4 =
-    TextStyle(fontSize: 14, color: Colors.white,   fontFamily: 'Inter', fontWeight: FontWeight.w400,);
+    TextStyle(fontSize: 14, color: Colors.white,   fontFamily: 'Poppins', fontWeight: FontWeight.w400,);
     const TextStyle hb3 =
-    TextStyle(fontSize: 12, color: Colors.black,   fontFamily: 'Inter', fontWeight: FontWeight.w400,);
+    TextStyle(fontSize: 12, color: Colors.black,   fontFamily: 'Poppins', fontWeight: FontWeight.w400,);
      const TextStyle hb14 =
-    TextStyle(fontSize: 14, color: Colors.black,   fontFamily: 'Inter', fontWeight: FontWeight.w400,);
+    TextStyle(fontSize: 14, color: Colors.black,   fontFamily: 'Poppins', fontWeight: FontWeight.w400,);
      const TextStyle hr3 =
-    TextStyle(fontSize: 12, color: Colors.red,   fontFamily: 'Inter', fontWeight: FontWeight.w400,);
+    TextStyle(fontSize: 12, color: Colors.red,   fontFamily: 'Poppins', fontWeight: FontWeight.w400,);
       const TextStyle hr4 =
-    TextStyle(fontSize: 16, color: Colors.red,   fontFamily: 'Inter', fontWeight: FontWeight.w400,);
+    TextStyle(fontSize: 16, color: Colors.red,   fontFamily: 'Poppins', fontWeight: FontWeight.w400,);
     const TextStyle hr5 =
-    TextStyle(fontSize: 15, color: Colors.red,   fontFamily: 'Inter', fontWeight: FontWeight.w400,);
+    TextStyle(fontSize: 15, color: Colors.red,   fontFamily: 'Poppins', fontWeight: FontWeight.w400,);
      const TextStyle hr6 =
-    TextStyle(fontSize: 15, color: Colors.red,   fontFamily: 'Inter', fontWeight: FontWeight.bold,);
+    TextStyle(fontSize: 15, color: Colors.red,   fontFamily: 'Poppins', fontWeight: FontWeight.bold,);
 
 
 
