@@ -1,5 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
@@ -40,38 +38,55 @@ class _PournamiPoojaState extends State<PournamiPooja> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Color(0xFFFFEFC4),
-      appBar: AppBar(
-        title: Text('POURNAMI POOJA'.tr,style: h2,),
-        backgroundColor:Colors.red,
-        actions: [ PopupMenuButton<int>(
-                icon: const Icon(Icons.language, color: Color.fromARGB(255, 69, 67, 67)),
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                      value: 1,
-                      child: TextButton(
-                          onPressed: () {
-                            var locale = const Locale('en', 'US');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'தமிழ்',
-                            style: hb3,
-                          ))),
-                  PopupMenuItem(
-                      value: 2,
-                      child: TextButton(
-
-                          onPressed: () {
-                            var locale = const Locale('ms', 'MS');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'English',
-                            style: hb3,
-                          ))),
-                ],
-              )],
+         backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('POURNAMI POOJA'),
+          actions: [
+            PopupMenuButton<int>(
+              icon: Image.asset('assets/language.png'),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                    value: 1,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('en', 'US');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'தமிழ்',
+                          style: hb3,
+                        ))),
+                PopupMenuItem(
+                    value: 2,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('ms', 'MS');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'English',
+                          style: hb3,
+                        ))),
+              ],
+            )
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -88,7 +103,7 @@ class _PournamiPoojaState extends State<PournamiPooja> {
                           borderRadius: BorderRadius.circular(6)),
                       image: DecorationImage(
                           image: AssetImage(
-                            'assets/pounami.jpg',
+                           'assets/sv16.jpg',
                           ),
                           fit: BoxFit.fill)),
                 ),

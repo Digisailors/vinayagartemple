@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../aa_model/videolistmodel.dart';
-import '../livestreaming_page/customvideoplayer.dart';
 
 class VideoPlayerPage extends StatefulWidget {
   const VideoPlayerPage({super.key});

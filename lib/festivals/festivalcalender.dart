@@ -54,38 +54,56 @@ class _FestivalPageState extends State<FestivalPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          title:  Center(child: Text('Festivals'.tr,style: h2,)),
-          actions: [ PopupMenuButton<int>(
-                icon: const Icon(Icons.language, color: Color.fromARGB(255, 69, 67, 67)),
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                      value: 1,
-                      child: TextButton(
-                          onPressed: () {
-                            var locale = const Locale('en', 'US');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'தமிழ்',
-                            style: hb3,
-                          ))),
-                  PopupMenuItem(
-                      value: 2,
-                      child: TextButton(
-
-                          onPressed: () {
-                            var locale = const Locale('ms', 'MS');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'English',
-                            style: hb3,
-                          ))),
-                ],
-              )],
+        backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Festivals'),
+          actions: [
+            PopupMenuButton<int>(
+              icon: Image.asset('assets/language.png'),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                    value: 1,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('en', 'US');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'தமிழ்',
+                          style: hb3,
+                        ))),
+                PopupMenuItem(
+                    value: 2,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('ms', 'MS');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'English',
+                          style: hb3,
+                        ))),
+              ],
+            )
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
         ),
+      ),
         body: ListView.builder(
             itemCount: 12,
             itemBuilder: (BuildContext context, int index) {

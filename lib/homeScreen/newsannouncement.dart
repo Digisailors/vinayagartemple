@@ -2,7 +2,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sreeselvavinayagartemple/themes/font_height.dart';
 
 class ArticalNews extends StatefulWidget {
@@ -260,16 +259,16 @@ class VideoCard extends StatelessWidget {
         onTap: onTap,
         child: Container(
          
-          height: 120,
+          height: 100,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.blueAccent, borderRadius: BorderRadius.circular(12)),
+              color: Color.fromARGB(255, 185, 199, 225), borderRadius: BorderRadius.circular(12)),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 90,
-                width: 10,
+                height: 100,
+                width: 90,
                 decoration: BoxDecoration(
                   color: Colors.grey[700],
                   borderRadius: BorderRadius.only(

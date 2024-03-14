@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 
 /// __________CoustTextFormFeild _____________
 
@@ -227,7 +226,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
       onPressed: widget.onPressed,
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(
-            const Color(0xFFFF0000)), // Red color
+            const  Color(0xFF006CA7),), // Red color
         elevation: MaterialStateProperty.all<double>(4),
         shape: MaterialStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(

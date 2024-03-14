@@ -66,12 +66,28 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: const Text('Forget Password'),
+       backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 10),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Forget Password'),
+      
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
       ),
-      backgroundColor: const Color.fromARGB(255, 255, 239, 196),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,

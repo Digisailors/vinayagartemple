@@ -5,12 +5,15 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sreeselvavinayagartemple/aa_model/paymentmodel.dart';
-import 'package:sreeselvavinayagartemple/aa_model/usermodel.dart';
+
+
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sreeselvavinayagartemple/aa_model/usermodel.dart';
 import 'package:sreeselvavinayagartemple/aa_model/videolistmodel.dart';
 import 'package:sreeselvavinayagartemple/aa_utils/api_config.dart';
 import 'package:sreeselvavinayagartemple/homeScreen/homepage.dart';
+
+import '../aa_model/paymentmodel.dart';
 
 class SessionController extends GetxController {
   List<Uint8List> memoryImage = <Uint8List>[].obs;

@@ -490,7 +490,7 @@ class _CustomElevatedButtonsState extends State<CustomElevatedButtons> {
       onPressed: widget.onPressed,
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(
-            const Color(0xFFFF0000)), // Red color
+            const Color(0xFF006CA7),), // Red color
         elevation: MaterialStateProperty.all<double>(4),
         shape: MaterialStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:sreeselvavinayagartemple/Initial%20page/initialpage.dart';
 
 import 'package:sreeselvavinayagartemple/aa_controller/session_Controller.dart';
 import 'package:sreeselvavinayagartemple/homeScreen/homepage.dart';

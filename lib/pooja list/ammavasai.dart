@@ -1,5 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
@@ -32,39 +31,56 @@ class _AmmavasaiPageState extends State<AmmavasaiPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Color(0xFFFFEFC4),
-      appBar: AppBar(
-        title: Text('AMMAVASAI POOJA'.tr,style: h2,),
-        backgroundColor:Colors.red,
-          actions: [ PopupMenuButton<int>(
-                icon: const Icon(Icons.language, color: Color.fromARGB(255, 69, 67, 67)),
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                      value: 1,
-                      child: TextButton(
-                          onPressed: () {
-                            var locale = const Locale('en', 'US');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'தமிழ்',
-                            style: hb3,
-                          ))),
-                  PopupMenuItem(
-                      value: 2,
-                      child: TextButton(
-
-                          onPressed: () {
-                            var locale = const Locale('ms', 'MS');
-                            Get.updateLocale(locale);
-                          },
-                          child: const Text(
-                            'English',
-                            style: hb3,
-                          ))),
-                ],
-              )]
-     ),
+          backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('AMMAVASAI POOJA'),
+          actions: [
+            PopupMenuButton<int>(
+              icon: Image.asset('assets/language.png'),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                    value: 1,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('en', 'US');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'தமிழ்',
+                          style: hb3,
+                        ))),
+                PopupMenuItem(
+                    value: 2,
+                    child: TextButton(
+                        onPressed: () {
+                          var locale = const Locale('ms', 'MS');
+                          Get.updateLocale(locale);
+                        },
+                        child: const Text(
+                          'English',
+                          style: hb3,
+                        ))),
+              ],
+            )
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
+      ),
      body:SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -80,7 +96,7 @@ class _AmmavasaiPageState extends State<AmmavasaiPage> {
                             borderRadius: BorderRadius.circular(6)),
                         image: const DecorationImage(
                             image: AssetImage(
-                              'assets/a1.jpg',
+                             'assets/sv17.jpg',
                             ),
                             fit: BoxFit.fill)),
                   ),

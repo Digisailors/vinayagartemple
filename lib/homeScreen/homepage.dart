@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sreeselvavinayagartemple/contact.dart';
 import 'package:sreeselvavinayagartemple/homeScreen/homenewscreen.dart';
+import 'package:sreeselvavinayagartemple/livestreaming_page/videoplayingfeild.dart';
 import 'package:sreeselvavinayagartemple/livestreaming_page/youtubepage.dart';
 import 'package:sreeselvavinayagartemple/profile/member_profile.dart';
+import 'package:sreeselvavinayagartemple/videopage/videoplayerpage.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/material.dart';
 
-import 'secondhome.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -19,7 +19,7 @@ class _HomepageState extends State<Homepage> {
    const MemberProfileView(),
    
    ContactPage(),
-   YoutubePlayerPage()
+VideoPlayesPage()
 
   ];
   int currentPageIndex = 0;

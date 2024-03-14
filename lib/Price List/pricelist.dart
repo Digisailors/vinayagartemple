@@ -20,16 +20,15 @@ class _PriceListState extends State<PriceList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFEFC4),
-      appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: Center(
-            child: Text('Pooja Price'.tr),
-          ),
+    backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Pooja Price'),
           actions: [
             PopupMenuButton<int>(
-              icon: const Icon(Icons.language,
-                  color: Color.fromARGB(255, 69, 67, 67)),
+              icon: Image.asset('assets/language.png'),
               itemBuilder: (context) => [
                 PopupMenuItem(
                     value: 1,
@@ -55,7 +54,22 @@ class _PriceListState extends State<PriceList> {
                         ))),
               ],
             )
-          ]),
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: SingleChildScrollView(
@@ -70,7 +84,8 @@ class _PriceListState extends State<PriceList> {
                   width: MediaQuery.of(context).size.width * 1,
                   height: MediaQuery.of(context).size.height * 0.08,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 0, 0),
+                    color: Color(0xFF79D0FF),
+
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       const BoxShadow(
@@ -184,9 +199,9 @@ class _PriceListState extends State<PriceList> {
                 ),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 1,
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.45,
                   decoration: BoxDecoration(
-                      color: const Color.fromARGB(225, 225, 0, 0),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: const [
                         BoxShadow(
@@ -201,8 +216,8 @@ class _PriceListState extends State<PriceList> {
                       BulletPoint(text: bulletPointText1.tr),
                       BulletPoint(text: bulletPointText2.tr),
                       BulletPoint(text: bulletPointText3.tr),
-                         Text('Thank you'.tr,style: TextStyle(color: Colors.white),),
-                  Text('Management Committee'.tr,style: TextStyle(color: Colors.white),),
+                         Text('Thank you'.tr,style: TextStyle(color: Colors.black),),
+                  Text('Management Committee'.tr,style: TextStyle(color: Colors.black),),
                     ],
                   ),
                 ),
@@ -234,7 +249,7 @@ class CUstomPriceCard extends StatelessWidget {
         ),
         child: Container(
           width: MediaQuery.of(context).size.width * 1,
-          height: MediaQuery.of(context).size.height * 0.09,
+          height: MediaQuery.of(context).size.height * 0.08,
           decoration: BoxDecoration(
             color: Color.fromARGB(255, 251, 241, 241),
             borderRadius: BorderRadius.circular(8),
@@ -251,7 +266,7 @@ class CUstomPriceCard extends StatelessWidget {
             leading: Text(serialnumber),
             title: Text(
               title,
-              style: TextStyle(color: Colors.black, fontSize: 12),
+              style: TextStyle(color: Colors.black, fontSize: 14,fontFamily: 'Poppins'),
             ),
             trailing: Text(rm),
           ),
@@ -277,14 +292,14 @@ class BulletPoint extends StatelessWidget {
             child: const Icon(
               Icons.circle,
               size: 10,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           Expanded(
-            child: AutoSizeText(
-              maxFontSize: 20,
+            child: Text(
+             
               text,
-              style: h4,
+              style: hb14,
             ),
           )
         ],

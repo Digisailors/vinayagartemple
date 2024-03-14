@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pod_player/pod_player.dart';
@@ -77,38 +76,8 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//        appBar: PreferredSize(
-//   preferredSize: Size.fromHeight(kToolbarHeight + 120),
-//   child: AppBar(
-//     actions: [
-//       IconButton(
-//         onPressed: () {},
-//         icon: Image.asset('assets/language.png')
-//       ),
-//     ],
-//     shape: RoundedRectangleBorder(
-//       borderRadius: BorderRadius.only(
-//         bottomLeft: Radius.circular(22),
-//         bottomRight: Radius.circular(22),
-//       ),
-//     ),
 
-//     flexibleSpace: Container(
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.only(
-//         bottomLeft: Radius.circular(22),
-//         bottomRight: Radius.circular(22)
-//       ),
-//         image: DecorationImage(
-//           image: AssetImage("assets/hometopbar1.jpg"),
-//           fit: BoxFit.fill,
-//            alignment: Alignment.centerRight,
-//         ),
-//       ),
-//     ),
-//   ),
-// ),
-        backgroundColor: Color.fromARGB(255, 201, 234, 251),
+     backgroundColor: Color(0xFFE4F5FF),
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
@@ -251,54 +220,54 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                   ),
                                 ),
                                 hGap10,
-                                const Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      "Feature Videos",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontFamily: 'Inter',
-                                        fontWeight: FontWeight.w500,
-                                        height: 0,
-                                      ),
-                                    )),
-                                SizedBox(
-                                    height: 170,
-                                    width: double.infinity,
-                                    child: youtubeList == null
-                                        ? const Center(
-                                            child:
-                                                CircularProgressIndicator(),
-                                          )
-                                        : ListView.builder(
-                                            scrollDirection:
-                                                Axis.horizontal,
-                                            itemCount:
-                                                youtubeList!.length,
-                                            itemBuilder:
-                                                (context, index) {
-                                              return Padding(
-                                                padding:
-                                                    const EdgeInsets
-                                                        .only(
-                                                        left: 8.0,
-                                                        right: 8.0),
-                                                child: SizedBox(
-                                                  width: 240,
-                                                  height: double
-                                                      .infinity,
-                                                  child:
-                                                      CustomVideoPlayer(
-                                                    link: youtubeList![
-                                                                index]
-                                                            .url ??
-                                                        '',
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                          )),
+                                // const Align(
+                                //     alignment: Alignment.centerLeft,
+                                //     child: Text(
+                                //       "Feature Videos",
+                                //       style: TextStyle(
+                                //         color: Colors.black,
+                                //         fontSize: 20,
+                                //         fontFamily: 'Poppins',
+                                //         fontWeight: FontWeight.w200,
+                                //         height: 0,
+                                //       ),
+                                //     )),
+                                // SizedBox(
+                                //     height: 170,
+                                //     width: double.infinity,
+                                //     child: youtubeList == null
+                                //         ? const Center(
+                                //             child:
+                                //                 CircularProgressIndicator(),
+                                //           )
+                                //         : ListView.builder(
+                                //             scrollDirection:
+                                //                 Axis.horizontal,
+                                //             itemCount:
+                                //                 youtubeList!.length,
+                                //             itemBuilder:
+                                //                 (context, index) {
+                                //               return Padding(
+                                //                 padding:
+                                //                     const EdgeInsets
+                                //                         .only(
+                                //                         left: 8.0,
+                                //                         right: 8.0),
+                                //                 child: SizedBox(
+                                //                   width: 240,
+                                //                   height: double
+                                //                       .infinity,
+                                //                   child:
+                                //                       CustomVideoPlayer(
+                                //                     link: youtubeList![
+                                //                                 index]
+                                //                             .url ??
+                                //                         '',
+                                //                   ),
+                                //                 ),
+                                //               );
+                                //             },
+                                //           )),
                                 hGap10,
 
                                 Row(
@@ -392,59 +361,60 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                     },
                                   ),
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 10.0, right: 10, bottom: 10),
-                                      child: Text('Other News'),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {},
-                                      child: const Text(
-                                        "View more",
-                                        textHeightBehavior:
-                                            TextHeightBehavior(),
-                                         style: TextStyle(
-                                            fontSize: 16, color: Colors.black,fontWeight: FontWeight.w300, fontFamily: 'Poppins',),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                ListView.builder(
-                                  padding: EdgeInsets.zero,
-                                  shrinkWrap: true,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  itemCount: 5,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    final videos = '';
-                                    return Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: VideoCard(
-                                          title:
-                                              'The Arulmigu Rajamariamman Temple was founded by Mr Kootha Perumal Vandayar who wanted a place to worship for the Hindus of Johor Bahru',
-                                          date: '22/02/2024',
-                                          imageUrl: 'assets/vinayagar.jpeg',
-                                          videoUrl: '',
-                                          onTap: () {
-                                            Get.to(() => VideoNews(
-                                                title: 'Arulmigu',
-                                                description: 'testing',
-                                                subTitle: 'test',
-                                                vidoeUrl:
-                                                    'https://www.youtube.com/watch?v=Svmvj-zNBi8',
-                                                date: '22/02',
-                                                imageUrl:
-                                                    'assets/mainslider1.jpg',
-                                                index: index,
-                                                id: ''));
-                                          },
-                                        ));
-                                  },
-                                )
+                                hGap20,
+                                // Row(
+                                //   mainAxisAlignment:
+                                //       MainAxisAlignment.spaceBetween,
+                                //   children: [
+                                //     const Padding(
+                                //       padding: EdgeInsets.only(
+                                //           left: 10.0, right: 10, bottom: 10),
+                                //       child: Text('Other News'),
+                                //     ),
+                                //     TextButton(
+                                //       onPressed: () {},
+                                //       child: const Text(
+                                //         "View more",
+                                //         textHeightBehavior:
+                                //             TextHeightBehavior(),
+                                //          style: TextStyle(
+                                //             fontSize: 16, color: Colors.black,fontWeight: FontWeight.w300, fontFamily: 'Poppins',),
+                                //       ),
+                                //     )
+                                //   ],
+                                // ),
+                                // ListView.builder(
+                                //   padding: EdgeInsets.zero,
+                                //   shrinkWrap: true,
+                                //   physics: const NeverScrollableScrollPhysics(),
+                                //   itemCount: 5,
+                                //   itemBuilder:
+                                //       (BuildContext context, int index) {
+                                //     final videos = '';
+                                //     return Padding(
+                                //         padding: const EdgeInsets.all(10.0),
+                                //         child: VideoCard(
+                                //           title:
+                                //               'The Arulmigu Rajamariamman Temple was founded by Mr Kootha Perumal Vandayar who wanted a place to worship for the Hindus of Johor Bahru',
+                                //           date: '22/02/2024',
+                                //           imageUrl: 'assets/vinayagar.jpeg',
+                                //           videoUrl: '',
+                                //           onTap: () {
+                                //             Get.to(() => VideoNews(
+                                //                 title: 'Arulmigu',
+                                //                 description: 'testing',
+                                //                 subTitle: 'test',
+                                //                 vidoeUrl:
+                                //                     'https://www.youtube.com/watch?v=Svmvj-zNBi8',
+                                //                 date: '22/02',
+                                //                 imageUrl:
+                                //                     'assets/mainslider1.jpg',
+                                //                 index: index,
+                                //                 id: ''));
+                                //           },
+                                //         ));
+                                //   },
+                                // )
                               ]))),
                 ],
               ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sreeselvavinayagartemple/Authentication/Signup%20page/signup.dart';
 import 'package:sreeselvavinayagartemple/Authentication/Signup%20page/signupnew.dart';
 import 'package:sreeselvavinayagartemple/homeScreen/homepage.dart';
 
