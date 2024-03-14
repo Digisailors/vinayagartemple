@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:sreeselvavinayagartemple/homeScreen/homepage.dart';
+
 import 'package:sreeselvavinayagartemple/languagetranslation.dart';
 import 'package:sreeselvavinayagartemple/themes/color_schemes.g.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(useMaterial3: false, colorScheme: lightColorScheme.copyWith(primary: Colors.white)),
       darkTheme: ThemeData(useMaterial3:false, colorScheme: darkColorScheme.copyWith(primary: Colors.red)),
-      home:   Homepage(),
+      home:Homepage(),
        translations: WorldLanguage(),
       locale:
           const Locale('ms', 'MS'),
