@@ -34,17 +34,57 @@ class Halladdonlistmodel {
 
 class Data {
     List<HallAddonList>? hallAddonList;
+    List<ServiceList>? bookingServiceList;
 
     Data({
         this.hallAddonList,
+        this.bookingServiceList,
     });
 
     factory Data.fromJson(Map<String, dynamic> json) => Data(
         hallAddonList: json["hall_addon_list"] == null ? [] : List<HallAddonList>.from(json["hall_addon_list"]!.map((x) => HallAddonList.fromJson(x))),
+        bookingServiceList: json["booking_service_list"] == null ? [] : List<ServiceList>.from(json["booking_service_list"]!.map((x) => ServiceList.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
         "hall_addon_list": hallAddonList == null ? [] : List<dynamic>.from(hallAddonList!.map((x) => x.toJson())),
+        "booking_service_list": bookingServiceList == null ? [] : List<dynamic>.from(bookingServiceList!.map((x) => x.toJson())),
+    };
+}
+
+class ServiceList {
+    String? id;
+    int? addonId;
+    int? serviceId;
+    int? amount;
+    String? serviceName;
+    String? serviceDescription;
+
+    ServiceList({
+        this.id,
+        this.addonId,
+        this.serviceId,
+        this.amount,
+        this.serviceName,
+        this.serviceDescription,
+    });
+
+    factory ServiceList.fromJson(Map<String, dynamic> json) => ServiceList(
+        id: json["id"],
+        addonId: json["addon_id"],
+        serviceId: json["service_id"],
+        amount: json["amount"],
+        serviceName: json["service_name"],
+        serviceDescription: json["service_description"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id": id,
+        "addon_id": addonId,
+        "service_id": serviceId,
+        "amount": amount,
+        "service_name": serviceName,
+        "service_description": serviceDescription,
     };
 }
 
@@ -58,7 +98,7 @@ class HallAddonList {
     String? image;
     DateTime? created;
     DateTime? modified;
-    List<HallAddonServiceList>? hallAddonServiceList;
+    List<ServiceList>? hallAddonServiceList;
 
     HallAddonList({
         this.id,
@@ -83,7 +123,7 @@ class HallAddonList {
         image: json["image"],
         created: json["created"] == null ? null : DateTime.parse(json["created"]),
         modified: json["modified"] == null ? null : DateTime.parse(json["modified"]),
-        hallAddonServiceList: json["hall_addon_service_list"] == null ? [] : List<HallAddonServiceList>.from(json["hall_addon_service_list"]!.map((x) => HallAddonServiceList.fromJson(x))),
+        hallAddonServiceList: json["hall_addon_service_list"] == null ? [] : List<ServiceList>.from(json["hall_addon_service_list"]!.map((x) => ServiceList.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
@@ -97,41 +137,5 @@ class HallAddonList {
         "created": created?.toIso8601String(),
         "modified": modified?.toIso8601String(),
         "hall_addon_service_list": hallAddonServiceList == null ? [] : List<dynamic>.from(hallAddonServiceList!.map((x) => x.toJson())),
-    };
-}
-
-class HallAddonServiceList {
-    String? id;
-    int? addonId;
-    int? serviceId;
-    int? amount;
-    String? serviceName;
-    String? serviceDescription;
-
-    HallAddonServiceList({
-        this.id,
-        this.addonId,
-        this.serviceId,
-        this.amount,
-        this.serviceName,
-        this.serviceDescription,
-    });
-
-    factory HallAddonServiceList.fromJson(Map<String, dynamic> json) => HallAddonServiceList(
-        id: json["id"],
-        addonId: json["addon_id"],
-        serviceId: json["service_id"],
-        amount: json["amount"],
-        serviceName: json["service_name"],
-        serviceDescription: json["service_description"],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "id": id,
-        "addon_id": addonId,
-        "service_id": serviceId,
-        "amount": amount,
-        "service_name": serviceName,
-        "service_description": serviceDescription,
     };
 }

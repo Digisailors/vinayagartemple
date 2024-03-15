@@ -154,7 +154,7 @@ class _PoojatimeingState extends State<Poojatimeing> {
                   title: 'Arthasama Pooja'.tr,
                   time: '09:00 '.tr,
                   times: 'pm'.tr,
-                  imagePath: 'assets/sv7.jpg'),
+                  imagePath: 'assets/sv2.jpg'),
             ],
           ),
         ),

@@ -248,26 +248,38 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
           return Form(
             key: formkey,
             child: Scaffold(
-              backgroundColor: Color(0xFFFFEFC4),
-              appBar: AppBar(
-                title: Text('Ubayam'),
-                backgroundColor: Colors.red,
-              ),
+                backgroundColor: Color(0xFFE4F5FF),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight +4),
+        child: AppBar(
+          backgroundColor: Color(0xFF006CA7),
+          title: Text('Ubayam'),
+      
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(22),
+                  bottomRight: Radius.circular(22)),
+            ),
+          ),
+        ),
+      ),
               body: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Ubayam ",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
+                   
                       GridView.count(
-                        crossAxisCount: 2,
+                        crossAxisCount: 3,
+                        physics: NeverScrollableScrollPhysics(),
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         children: List.generate(
@@ -303,7 +315,7 @@ class _UbayamSelectionPageState extends State<UbayamSelectionPage> {
                           child: Column(
                             children: [
                               Card(
-                                  color: Color(0xFFFFEFC4),
+                                  color:  Color(0xFFE4F5FF),
                                   child: Column(
                                     children: [
                                       hGap10,
@@ -543,8 +555,8 @@ class _CustomGridTileState extends State<CustomGridTile> {
               child: Stack(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    width: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    width: MediaQuery.of(context).size.width * 0.28,
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -559,6 +571,7 @@ class _CustomGridTileState extends State<CustomGridTile> {
                     top: 0,
                     right: 0,
                     child: Checkbox(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                       value: widget.selected,
                       onChanged: (value) {
                         setState(() {
@@ -570,13 +583,13 @@ class _CustomGridTileState extends State<CustomGridTile> {
                 ],
               ),
             ),
-            SizedBox(height: 5),
+         
             Text(
               widget.name,
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: 12),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 5),
+         
           ],
         ),
       ),

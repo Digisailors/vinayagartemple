@@ -332,6 +332,7 @@ void showSnackBarMessage(String message) {
                     return Text('Error: ${snapshot.error}');
                   } else if (snapshot.hasData) {
                     return ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount:
                           snapshot.data?.data?.kurumaTypeList?.length ?? 0,
@@ -381,6 +382,7 @@ void showSnackBarMessage(String message) {
                     return Text('Error: ${snapshot.error}');
                   } else if (snapshot.hasData) {
                     return ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount:
                           snapshot.data!.data!.riceCategoryList?.length ?? 0,
@@ -430,6 +432,7 @@ void showSnackBarMessage(String message) {
                     return Text('Error: ${snapshot.error}');
                   } else if (snapshot.hasData) {
                     return ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: snapshot.data!.data!.riceTypeList?.length ?? 0,
                       itemBuilder: (context, index) {
@@ -479,6 +482,7 @@ void showSnackBarMessage(String message) {
                     print(
                         'testing length${snapshot.data!.data!.vegetableList?.length}');
                     return ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount:
                           snapshot.data!.data!.vegetableList?.length ?? 0,

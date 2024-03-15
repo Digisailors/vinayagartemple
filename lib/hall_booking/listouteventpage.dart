@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -25,7 +26,6 @@ class SelectedEventPage extends StatefulWidget {
 }
 
 class _SelectedEventPageState extends State<SelectedEventPage> {
- 
   double totalAmount = 0.0;
   SessionController? controller;
   List<HallAddonList>? hallAddonList;
@@ -103,9 +103,6 @@ class _SelectedEventPageState extends State<SelectedEventPage> {
     }
   }
 
-
-
-
   @override
   void initState() {
     SharedPreferences.getInstance().then((prefs) {
@@ -122,8 +119,6 @@ class _SelectedEventPageState extends State<SelectedEventPage> {
     super.initState();
   }
 
-
- 
   // double calculateTotalPay() {
   //   double totalPay = 0.0;
 
@@ -137,7 +132,6 @@ class _SelectedEventPageState extends State<SelectedEventPage> {
   //   return totalPay;
   // }
 
- 
   // HallAddonServiceList? findServiceById(String? serviceId) {
   //   var hallAddonListData;
   //   for (HallAddonList addon in hallAddonListData.data?.hallAddonList ?? []) {
@@ -151,15 +145,16 @@ class _SelectedEventPageState extends State<SelectedEventPage> {
   //   return null;
   // }
   final formkey = GlobalKey<FormState>();
+  Set<String> selectedBookingServices = Set<String>();
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formkey,
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 239, 196),
+        backgroundColor: Color(0xFFE4F5FF),
         appBar: AppBar(
-          title: Text('Baby shower'),
-          backgroundColor: Colors.red,
+          title: Text('Selected Package'),
+          backgroundColor:Color(0xFF006CA7),
         ),
         body: FutureBuilder<Halladdonlistmodel>(
           future: gethalladdonlist(),
@@ -187,121 +182,165 @@ class _SelectedEventPageState extends State<SelectedEventPage> {
                               borderRadius: BorderRadius.circular(6),
                             ),
                             image: DecorationImage(
-                              image: AssetImage('assets/september.png'),
+                              image: AssetImage('assets/sv2.jpg'),
                               fit: BoxFit.fill,
                             ),
                           ),
                         ),
                       ),
                       hGap15,
-                      Text('List of Package Items',
-                          style: TextStyle(fontSize: 22)),
-                      hGap10,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('List of Package Items',
+                            style: TextStyle(fontSize: 22)),
+                      ),
+                    
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ListView.builder(
                           itemCount:
-                              hallAddonListData.data?.hallAddonList?.length ??
-                                  0,
+                              1, // You might want to update this based on your actual data
                           shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
                           scrollDirection: Axis.vertical,
                           itemBuilder: (context, index) {
                             final HallAddonList addon =
                                 hallAddonListData.data!.hallAddonList![index];
 
-                            if (widget.selectedPackageId.contains(addon.id)) {
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      '${addon.name}',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
+                            List<Widget> serviceWidgets = [];
+                            double totalAmount = 0.0;
+                            Set<String> uniqueServiceNames = HashSet<String>();
+
+                            // Loop through hallAddonServiceList and add unique services
+                            for (final String packageId
+                                in widget.selectedPackageId.nonNulls) {
+                              final HallAddonList selectedAddon =
+                                  hallAddonListData.data!.hallAddonList!
+                                      .firstWhere(
+                                          (addon) => addon.id == packageId,
+                                          orElse: () => HallAddonList());
+
+                              // Move the set declaration inside the loop to reset for each package
+                              for (final ServiceList service
+                                  in selectedAddon.hallAddonServiceList ?? []) {
+                                final String serviceName =
+                                    service.serviceName ?? '';
+
+                                if (!uniqueServiceNames.contains(serviceName)) {
+                                  uniqueServiceNames.add(serviceName);
+
+                                  serviceWidgets.add(
+                                    Card(
+                                      color:  Color(0xFFE4F5FF),
+                                      child: ListTile(
+                                        title: Text(serviceName),
+                                        trailing:
+                                            Text('RM${service.amount ?? ''}'),
+                                      ),
                                     ),
-                                    SizedBox(height: 10),
-                                    ListView.builder(
-                                      itemCount:
-                                          addon.hallAddonServiceList?.length ??
-                                              0,
-                                      shrinkWrap: true,
-                                      physics: NeverScrollableScrollPhysics(),
-                                      itemBuilder: (context, serviceIndex) {
-                                        final HallAddonServiceList service =
-                                            addon.hallAddonServiceList![
-                                                serviceIndex];
-                                        bool isServiceSelected =
-                                            selectedServices
-                                                .contains(service.serviceId);
-                                        return GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              if (isServiceSelected) {
-                                                selectedServices
-                                                    .remove(service.serviceId);
-                                                     totalAmount -= service.amount!;
-                                              } else {
-                                                selectedServices.add(service
-                                                    .serviceId
-                                                    .toString());
-                                                   totalAmount += service.amount!;
-                                              }
-                                            });
-                                          },
-                                          child: Card(
-                                            color: isServiceSelected
-                                                ? Colors.red
-                                                : Color.fromARGB(
-                                                    115, 227, 222, 222),
-                                            child: ListTile(
-                                              title: Text(
-                                                  service.serviceName ?? ''),
-                                              trailing: Text(
-                                                  'RM${service.amount ?? ''}'),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    SizedBox(height: 10),
-                                     Card(
-                                      color: const Color.fromARGB(255, 184, 243, 214),
-                                       child: SizedBox(
-                                        height: 50,
-                                         child: Center(
-                                           child: ListTile(leading: Text('Amout'),
-                                           trailing:    Text(
-                                            '${addon.amount}',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                                                               ) ,),
-                                         )
-                                     
-                                       ),
-                                     ),
-                                  ],
-                                ),
-                              );
-                            } else {
-                              return SizedBox.shrink();
+                                  );
+
+                                  totalAmount += service.amount ?? 0.0;
+                                }
+                              }
                             }
+
+                            // Loop through bookingServiceList and add unique services in red
+                            for (final ServiceList service
+                                in hallAddonListData.data!.bookingServiceList ??
+                                    []) {
+                              final String serviceName =
+                                  service.serviceName ?? '';
+
+                              if (!uniqueServiceNames.contains(serviceName)) {
+                                uniqueServiceNames.add(serviceName);
+                                bool isSelected = selectedBookingServices
+                                    .contains(serviceName);
+                                serviceWidgets.add(
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        if (isSelected) {
+                                          selectedBookingServices
+                                              .remove(serviceName);
+                                          totalAmount -= service.amount ?? 0.0;
+                                        } else {
+                                          selectedBookingServices
+                                              .add(serviceName);
+                                          totalAmount += service.amount ?? 0.0;
+                                        }
+                                      });
+                                    },
+                                    child: Card(
+                                      color: isSelected
+                                          ? const Color.fromARGB(255, 184, 237, 186)
+                                          : const Color.fromARGB(255, 236, 159, 153),
+                                      child: ListTile(
+                                        title: Text(serviceName),
+                                        trailing: 
+                                             Text('RM${service.amount ?? ''}',style:TextStyle(color: Colors.white),)
+                                            
+                                      ),
+                                    ),
+                                  ),
+                                );
+
+                                // Update the total amount dynamically when the service is selected
+                                if (isSelected) {
+                                  totalAmount += service.amount ?? 0.0;
+                                }
+                              }
+                            }
+
+                            serviceWidgets.add(
+                              Padding(
+                                padding: const EdgeInsets.only(top: 15),
+                                child: Container(
+                                  color: Colors.blueGrey,
+                                  child: Card(
+                                    color: Colors.grey,
+                                    child: ListTile(
+                                      leading: Text(
+                                        'Total Amount:',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      trailing: Text(
+                                        ' RM${totalAmount.toStringAsFixed(2)}',
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(height: 10),
+                                  ...serviceWidgets,
+                                ],
+                              ),
+                            );
                           },
                         ),
                       ),
                       hGap10,
-                      Text(
-                        'Enter your Booking Address Details',
-                        style: TextStyle(fontSize: 18),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Enter your Booking Address Details',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ),
                       hGap10,
                       Container(
                         child: Column(
                           children: [
                             Card(
-                                color: Colors.redAccent,
+                                color:  Color(0xFFE4F5FF),
                                 child: Column(
                                   children: [
                                     hGap10,
@@ -363,44 +402,6 @@ class _SelectedEventPageState extends State<SelectedEventPage> {
                                     hGap10,
                                   ],
                                 ))
-                          ],
-                        ),
-                      ),
-                      hGap20,
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                        margin: EdgeInsets.symmetric(horizontal: 0),
-                        decoration: BoxDecoration(
-                          color: thirdColor,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Payment Details',
-                              style: h2,
-                            ),
-                            hGap10,
-                            Divider(
-                              color: const Color.fromARGB(97, 231, 205, 205),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Total Pay',
-                                  style: h4,
-                                ),
-                                 Text('RM${totalAmount}',style: h4,),
-                                
-                              //     Text(
-                              //   'RM${calculateTotalPay().toStringAsFixed(2)}',
-                              //   style: h4,
-                              // )
-                              ],
-                            ),
                           ],
                         ),
                       ),

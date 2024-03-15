@@ -22,7 +22,7 @@ class _PriceListState extends State<PriceList> {
     return Scaffold(
     backgroundColor: Color(0xFFE4F5FF),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        preferredSize: Size.fromHeight(kToolbarHeight +4),
         child: AppBar(
           backgroundColor: Color(0xFF006CA7),
           title: Text('Pooja Price'),

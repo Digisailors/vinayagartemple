@@ -101,7 +101,7 @@ class _AnnathanamDateSelectionState extends State<AnnathanamDateSelection> {
         preferredSize: Size.fromHeight(kToolbarHeight + 10),
         child: AppBar(
           backgroundColor: Color(0xFF006CA7),
-          title: Text('Pooja Price'),
+          title: Text('Annathanam'),
           actions: [
             PopupMenuButton<int>(
               icon: Image.asset('assets/language.png'),

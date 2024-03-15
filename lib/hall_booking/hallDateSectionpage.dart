@@ -3,8 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:sreeselvavinayagartemple/Annadhanam/annathanam_date_selection.dart';
 import 'package:sreeselvavinayagartemple/aa_model/halladdonmodel.dart';
+import 'package:sreeselvavinayagartemple/Annadhanam/annathanam_date_selection.dart';
+
 import 'package:sreeselvavinayagartemple/hall_booking/listouteventpage.dart';
 import 'package:sreeselvavinayagartemple/themes/font_height.dart';
 import 'package:http/http.dart' as http;
@@ -23,10 +24,10 @@ class _HallDateSectionPageState extends State<HallDateSectionPage> {
 
   String? selectedPackageImagePath;
   List<String> selectedPackageIds = [];
-   List<String> selectedSlots = [];
+  List<String> selectedSlots = [];
 //int?selectedSlotid;
   late Future<Halladdonlistmodel> hallAddonList;
- 
+
   TextEditingController dateController = TextEditingController();
 
   Hallslotdateselectionmodel? hallslotdateselectionmodel;
@@ -111,26 +112,16 @@ class _HallDateSectionPageState extends State<HallDateSectionPage> {
 
     super.initState();
   }
-
-  // void onSlotSelected(int slotId) {
-  //   print('Selected Slots: $selectedSlots');
-  //   setState(() {
-  //     selectedSlots.clear();
-
-  //     selectedSlots.add(slotId.toString());
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-                backgroundColor: Color(0xFFE4F5FF),
+      backgroundColor: Color(0xFFE4F5FF),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight + 10),
         child: AppBar(
           backgroundColor: Color(0xFF006CA7),
-          title: Text('Hall Booking'),
-      
+          title: Text('Hall'),
+        
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(22),
@@ -199,13 +190,12 @@ class _HallDateSectionPageState extends State<HallDateSectionPage> {
                                         .slotId!;
                                     print('Tapped Slot ID: $slotId');
                                     setState(() {
-                                      if (selectedSlots.contains(slotId)) {
-                                        selectedSlots.remove(slotId);
+                                      String slotIdString = slotId.toString();
+                                      if (selectedSlots
+                                          .contains(slotIdString)) {
+                                        selectedSlots.remove(slotIdString);
                                       } else {
-                                        if (!selectedSlots
-                                            .contains(slotId.toString())) {
-                                          selectedSlots.add(slotId.toString());
-                                        }
+                                        selectedSlots.add(slotIdString);
                                       }
                                     });
                                     print('After Selection: $selectedSlots');
@@ -215,9 +205,10 @@ class _HallDateSectionPageState extends State<HallDateSectionPage> {
                                             hallslotdateselectionmodel!
                                                 .data!
                                                 .hallbookingSlotList![index]
-                                                .slotId!)
+                                                .slotId!
+                                                .toString())
                                         ? Colors.blue
-                                        : Colors.white,
+                                        : Colors.green,
                                     child: Container(
                                       height:
                                           MediaQuery.of(context).size.height *
@@ -289,9 +280,7 @@ class _HallDateSectionPageState extends State<HallDateSectionPage> {
                                 }).toList() ??
                                 [],
                       ),
-                      
                     ),
-                    
                     hGap20,
                     CustomElevatedButton(
                         onPressed: () {
@@ -407,7 +396,7 @@ class _SlotCardState extends State<SlotCard> {
         setState(() {});
       },
       child: Card(
-        color: widget.isSelected ? Colors.blue : Colors.white,
+        color: widget.isSelected ? Colors.blue : Colors.greenAccent,
         child: Container(
           height: MediaQuery.of(context).size.height * 0.05,
           width: MediaQuery.of(context).size.width * 0.36,

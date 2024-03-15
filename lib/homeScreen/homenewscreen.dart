@@ -10,9 +10,7 @@ import 'package:sreeselvavinayagartemple/aa_model/videolistmodel.dart';
 import 'package:sreeselvavinayagartemple/donation/donationlistnew.dart';
 import 'package:sreeselvavinayagartemple/festivals/festivalcalender.dart';
 import 'package:sreeselvavinayagartemple/hall_booking/hallDateSectionpage.dart';
-import 'package:sreeselvavinayagartemple/homeScreen/homevideoplayer.dart';
-import 'package:sreeselvavinayagartemple/homeScreen/newsannouncement.dart';
-import 'package:sreeselvavinayagartemple/livestreaming_page/customvideoplayer.dart';
+
 import 'package:sreeselvavinayagartemple/pooja%20list/poojalist.dart';
 import 'package:sreeselvavinayagartemple/poojatiming/pooja_timing.dart';
 import 'package:sreeselvavinayagartemple/themes/font_height.dart';
