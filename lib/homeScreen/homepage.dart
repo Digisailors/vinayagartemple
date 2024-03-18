@@ -4,7 +4,7 @@ import 'package:sreeselvavinayagartemple/homeScreen/homenewscreen.dart';
 import 'package:sreeselvavinayagartemple/livestreaming_page/videoplayingfeild.dart';
 import 'package:sreeselvavinayagartemple/livestreaming_page/youtubepage.dart';
 import 'package:sreeselvavinayagartemple/profile/member_profile.dart';
-import 'package:sreeselvavinayagartemple/videopage/videoplayerpage.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 
