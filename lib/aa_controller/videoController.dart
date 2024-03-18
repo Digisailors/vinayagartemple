@@ -15,7 +15,9 @@ class VideoController extends GetxController{
    SessionController? sessionController;
  @override
   void onInit() async {
+      sessionController = Get.find<SessionController>();
 videodata();
+  loadVideo();
  update();
     super.onInit();
   }
@@ -36,6 +38,18 @@ videodata();
     } else {
       print('Error');
     }
+  }
+    void loadVideo() async {
+    final urls = await PodPlayerController.getYoutubeUrls(
+      'https://www.youtube.com/@arulmigurajamariammandevas7267',
+    );
+     isLoading = false;
+    controller = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.networkQualityUrls(videoUrls: urls!),
+      podPlayerConfig: const PodPlayerConfig(
+        videoQualityPriority: [360],
+      ),
+    )..initialise();
   }
 }
 

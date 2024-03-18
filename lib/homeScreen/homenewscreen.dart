@@ -287,7 +287,9 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                       ),
                                     ),
                                     TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                         
+                                      },
                                       child: const Text(
                                         "View more",
                                         textHeightBehavior:
@@ -312,7 +314,9 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                         padding:
                                             const EdgeInsets.only(right: 5.0),
                                         child: InkWell(
-                                          onTap: () {},
+                                          onTap: () {
+
+                                          },
                                           child: Stack(
                                             children: [
                                               Container(
