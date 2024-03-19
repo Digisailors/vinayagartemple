@@ -73,7 +73,7 @@ class SignupPageState extends State<SignupPage> {
       body: Stack(
         children: [
           Image.asset(
-            'assets/temple.png',
+            'assets/gana.png',
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
@@ -106,7 +106,7 @@ class SignupPageState extends State<SignupPage> {
                     //color: Colors.white,
                   ),
                   child: ClipOval(
-                    child: Image.asset('assets/ammannew.png'),
+                    child: Image.asset('assets/gana.png'),
                   ),
                 ),
                 hGap10,
