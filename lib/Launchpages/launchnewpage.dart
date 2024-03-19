@@ -17,13 +17,13 @@ class _LaunchNewPageState extends State<LaunchNewPage> {
         IntroductionSliderItem(
          // logo: FlutterLogo(),
           //title: Text("Title 1"),
-         backgroundImageDecoration: BackgroundImageDecoration(image:ExactAssetImage('assets/initial-image1.png')),
+         backgroundImageDecoration: BackgroundImageDecoration(image:ExactAssetImage('assets/gana2.png')),
         ),
        
         IntroductionSliderItem(
          // logo: FlutterLogo(),
         //  title: Text("Title 3"),
-         backgroundImageDecoration: BackgroundImageDecoration(image:ExactAssetImage('assets/initial-image2.png')),
+         backgroundImageDecoration: BackgroundImageDecoration(image:ExactAssetImage('assets/gana1.png')),
         ),
       ],
       done: Done(

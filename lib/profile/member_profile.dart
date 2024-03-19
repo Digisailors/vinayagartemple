@@ -216,15 +216,15 @@ class _MemberProfileViewState extends State<MemberProfileView> {
                                         width: 120,
                                         decoration: BoxDecoration(
                                             shape: BoxShape.circle,
-                                            color: Colors.black,
+                                            color: Colors.white,
                                             image: DecorationImage(
                                                 image: AssetImage(
-                                                    "assets/august.png"),
+                                                    "assets/gana.png"),
                                                 fit: BoxFit.cover)),
                                         child: CircleAvatar(
-                                          backgroundColor: Colors.black,
+                                          backgroundColor: Colors.white,
                                           foregroundImage:
-                                              AssetImage("assets/august.png"),
+                                              AssetImage("assets/gana.png"),
                                         ),
                                       ),
                                     ),
@@ -329,19 +329,19 @@ class _MemberProfileViewState extends State<MemberProfileView> {
                                       width: 120,
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: Colors.black,
+                                          color: Colors.white,
                                           image: DecorationImage(
                                               image: AssetImage(
-                                                  "assets/august.png"),
+                                                  "assets/gana.png"),
                                               fit: BoxFit.cover)),
                                       // child: Image.asset(
                                       //       'assets/sivan.png',
                                       //       fit: BoxFit.fill,
                                       //     ), ,
                                       child: CircleAvatar(
-                                        backgroundColor: Colors.black,
+                                        backgroundColor: Colors.white,
                                         foregroundImage:
-                                            AssetImage("assets/august.png"),
+                                            AssetImage("assets/gana.png"),
                                       ),
                                     ),
                                   ),

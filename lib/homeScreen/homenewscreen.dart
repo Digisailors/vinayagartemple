@@ -473,7 +473,7 @@ class _HorizontalItemWidgetState extends State<HorizontalItemWidget> {
             widget.itemName,
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontFamily: 'Poppins', fontWeight: FontWeight.w200),
+                fontFamily: 'Poppins', fontWeight: FontWeight.w400,color:Colors.black),
           ),
         ],
       ),
@@ -560,9 +560,9 @@ class _HorizontalItemWidget1State extends State<HorizontalItemWidget1> {
             hGap5,
             Text(
               widget.itemNames,
-              style: const TextStyle(
-                  fontFamily: 'Poppins', fontWeight: FontWeight.w200),
-            ),
+             style: const TextStyle(
+                fontFamily: 'Poppins', fontWeight: FontWeight.w400,color:Colors.black),
+          ),
           ],
         ));
   }
