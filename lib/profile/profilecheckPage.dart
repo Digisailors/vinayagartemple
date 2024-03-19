@@ -14,7 +14,7 @@ class _ProfileNavigationCheckState extends State<ProfileNavigationCheck> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Are You Ready to SignUp?'),
+      title: Text('SignUp?'),
       content: Container(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

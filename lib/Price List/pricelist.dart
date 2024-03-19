@@ -22,7 +22,7 @@ class _PriceListState extends State<PriceList> {
     return Scaffold(
     backgroundColor: Color(0xFFE4F5FF),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        preferredSize: Size.fromHeight(kToolbarHeight +4),
         child: AppBar(
           backgroundColor: Color(0xFF006CA7),
           title: Text('Pooja Price'),
@@ -55,14 +55,14 @@ class _PriceListState extends State<PriceList> {
               ],
             )
           ],
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(22),
               bottomRight: Radius.circular(22),
             ),
           ),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(22),
                   bottomRight: Radius.circular(22)),
@@ -87,8 +87,8 @@ class _PriceListState extends State<PriceList> {
                     color: Color(0xFF79D0FF),
 
                     borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      const BoxShadow(
+                    boxShadow: const [
+                       BoxShadow(
                         color: Color(0x3F000000),
                         blurRadius: 2,
                         offset: Offset(0, 2),
@@ -216,8 +216,8 @@ class _PriceListState extends State<PriceList> {
                       BulletPoint(text: bulletPointText1.tr),
                       BulletPoint(text: bulletPointText2.tr),
                       BulletPoint(text: bulletPointText3.tr),
-                         Text('Thank you'.tr,style: TextStyle(color: Colors.black),),
-                  Text('Management Committee'.tr,style: TextStyle(color: Colors.black),),
+                         Text('Thank you'.tr,style: const TextStyle(color: Colors.black),),
+                  Text('Management Committee'.tr,style: const TextStyle(color: Colors.black),),
                     ],
                   ),
                 ),
@@ -253,8 +253,8 @@ class CUstomPriceCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Color.fromARGB(255, 251, 241, 241),
             borderRadius: BorderRadius.circular(8),
-            boxShadow: [
-              const BoxShadow(
+            boxShadow: const [
+              BoxShadow(
                 color: Color(0x3F000000),
                 blurRadius: 3,
                 offset: Offset(0, 2),
@@ -266,7 +266,7 @@ class CUstomPriceCard extends StatelessWidget {
             leading: Text(serialnumber),
             title: Text(
               title,
-              style: TextStyle(color: Colors.black, fontSize: 14,fontFamily: 'Poppins'),
+              style: const TextStyle(color: Colors.black, fontSize: 14,fontFamily: 'Poppins'),
             ),
             trailing: Text(rm),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sreeselvavinayagartemple/Launchpages/launchnewpage.dart';
 
 
 import 'package:sreeselvavinayagartemple/aa_controller/session_Controller.dart';
@@ -28,7 +29,7 @@ class _LandingPageState extends State<LandingPage> {
 
     if (isFirstTime) {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => Homepage()),
+        MaterialPageRoute(builder: (context) => LaunchNewPage()),
       );
 
       prefs.setBool("firstTimeLaunch", false);

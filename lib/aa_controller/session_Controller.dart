@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sreeselvavinayagartemple/aa_controller/videoController.dart';
 import 'package:sreeselvavinayagartemple/aa_model/usermodel.dart';
 import 'package:sreeselvavinayagartemple/aa_model/videolistmodel.dart';
 import 'package:sreeselvavinayagartemple/aa_utils/api_config.dart';
@@ -16,6 +17,7 @@ import 'package:sreeselvavinayagartemple/homeScreen/homepage.dart';
 import '../aa_model/paymentmodel.dart';
 
 class SessionController extends GetxController {
+    VideoController? vcontroller;
   List<Uint8List> memoryImage = <Uint8List>[].obs;
   List<String> images = <String>[].obs;
   List<File> files = <File>[].obs;

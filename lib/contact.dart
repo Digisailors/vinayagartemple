@@ -65,7 +65,7 @@ class _ContactPageState extends State<ContactPage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.0),
                         image: const DecorationImage(
-                          image: AssetImage('assets/ammannew.png'),
+                          image: AssetImage('assets/gana.png'),
                           fit: BoxFit.contain,
                         ),
                       ),

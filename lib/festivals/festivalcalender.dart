@@ -29,18 +29,18 @@ class _FestivalPageState extends State<FestivalPage> {
   ];
 
   List<String> backgroundImagePaths = [
-    'assets/october.png',
-    'assets/febuary.jpeg',
-    'assets/december.png',
-    'assets/april.png',
-    'assets/may.png',
-    'assets/june.png',
-    'assets/july.jpeg',
-    'assets/august.png',
-    'assets/september.png',
-    'assets/october.png',
-    'assets/november.jpeg',
-    'assets/december.png',
+'assets/sv1.jpg',
+'assets/sv2.jpg',
+'assets/sv3.jpg',
+'assets/sv7.jpg',
+'assets/sv5.jpg',
+'assets/sv6.jpg',
+'assets/sv8.jpg',
+'assets/sv9.jpg',
+'assets/sv10.jpg',
+'assets/sv12.jpg',
+'assets/sv13.jpg',
+'assets/sv14.jpg',
   ];
 
   @override
@@ -56,7 +56,7 @@ class _FestivalPageState extends State<FestivalPage> {
     return Scaffold(
         backgroundColor: Color(0xFFE4F5FF),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight + 20),
+        preferredSize: Size.fromHeight(kToolbarHeight +4),
         child: AppBar(
           backgroundColor: Color(0xFF006CA7),
           title: Text('Festivals'),
@@ -293,10 +293,9 @@ List<CustomDataGridWidget> getCustomDataGridWidgetDataForMonth(int index) {
         CustomDataGridWidget('மார்கழி 24', '09.01.2024', 'Tue', 'krishna Patcha Pradhosam'.tr),
         CustomDataGridWidget('மார்கழி 26', '11.01.2024', 'Thu', 'Hanuman Jeyanthi '.tr),
         CustomDataGridWidget('மார்கழி 26', '11.01.2024', 'Thu', 'Ammavasai'.tr),
-        //CustomDataGridWidget('மார்கழி 29', '14.01.2024', 'Sun','Bhogi Pongal'),
+      
         CustomDataGridWidget('தை 01', '15.01.2024', 'Mon', 'Thai pongal'.tr),
-        //CustomDataGridWidget('தை 02', '16.01.2024', 'Tue', 'Mattu Pongal'),
-        //CustomDataGridWidget('தை 03', '17.01.2024', 'Wed', 'Uzhavar Thirunal'),
+   
         CustomDataGridWidget('தை 09', '23.01.2024', 'Tue', 'Sukkula Patcha Pradhosam'.tr),
         CustomDataGridWidget('தை 11', '25.01.2024', 'Tue', 'Thaipusam'.tr),
         CustomDataGridWidget('தை 11', '25.01.2024', 'Tue', 'Pournami Pooja'.tr),

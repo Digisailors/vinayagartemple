@@ -51,7 +51,7 @@ class _InitialPageState extends State<InitialPage>
     return Stack(
       children: [
         Image.asset(
-          'assets/intro.gif',
+          'assets/initialimage1.png',
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.cover,

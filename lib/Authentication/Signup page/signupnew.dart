@@ -104,7 +104,7 @@ class _SignUpState extends State<SignUp> {
                     //color: Colors.white,
                   ),
                   child: ClipOval(
-                    child: Image.asset('assets/ammannew.png'),
+                    child: Image.asset('assets/gana.png'),
                   ),
                 ),
                           const Text(

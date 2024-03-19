@@ -96,9 +96,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
           
             SizedBox(
               //  color: Colors.amber,
-              height: MediaQuery.of(context).size.height * 0.15,
-              width: MediaQuery.of(context).size.width * 0.20,
-              child: Image.asset("assets/ammannew.png"),
+              height: MediaQuery.of(context).size.height * 0.20,
+              width: MediaQuery.of(context).size.width * 0.40,
+              child: Image.asset("assets/gana.png"),
             ),
                 
             hGap10,

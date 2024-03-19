@@ -10,9 +10,7 @@ import 'package:sreeselvavinayagartemple/aa_model/videolistmodel.dart';
 import 'package:sreeselvavinayagartemple/donation/donationlistnew.dart';
 import 'package:sreeselvavinayagartemple/festivals/festivalcalender.dart';
 import 'package:sreeselvavinayagartemple/hall_booking/hallDateSectionpage.dart';
-import 'package:sreeselvavinayagartemple/homeScreen/homevideoplayer.dart';
-import 'package:sreeselvavinayagartemple/homeScreen/newsannouncement.dart';
-import 'package:sreeselvavinayagartemple/livestreaming_page/customvideoplayer.dart';
+
 import 'package:sreeselvavinayagartemple/pooja%20list/poojalist.dart';
 import 'package:sreeselvavinayagartemple/poojatiming/pooja_timing.dart';
 import 'package:sreeselvavinayagartemple/themes/font_height.dart';
@@ -289,7 +287,9 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                       ),
                                     ),
                                     TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                         
+                                      },
                                       child: const Text(
                                         "View more",
                                         textHeightBehavior:
@@ -314,7 +314,9 @@ class _HomeScreenNewPageState extends State<HomeScreenNewPage> {
                                         padding:
                                             const EdgeInsets.only(right: 5.0),
                                         child: InkWell(
-                                          onTap: () {},
+                                          onTap: () {
+
+                                          },
                                           child: Stack(
                                             children: [
                                               Container(
@@ -471,7 +473,7 @@ class _HorizontalItemWidgetState extends State<HorizontalItemWidget> {
             widget.itemName,
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontFamily: 'Poppins', fontWeight: FontWeight.w200),
+                fontFamily: 'Poppins', fontWeight: FontWeight.w400,color:Colors.black),
           ),
         ],
       ),
@@ -558,9 +560,9 @@ class _HorizontalItemWidget1State extends State<HorizontalItemWidget1> {
             hGap5,
             Text(
               widget.itemNames,
-              style: const TextStyle(
-                  fontFamily: 'Poppins', fontWeight: FontWeight.w200),
-            ),
+             style: const TextStyle(
+                fontFamily: 'Poppins', fontWeight: FontWeight.w400,color:Colors.black),
+          ),
           ],
         ));
   }

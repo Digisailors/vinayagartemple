@@ -123,7 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 shape: BoxShape.circle,
                                 color: Colors.white,
                                 image: DecorationImage(
-                                    image: AssetImage("assets/sivan.png"),
+                                    image: AssetImage("assets/gana.png"),
                                     fit: BoxFit.cover)),
                             // child: Image.asset(
                             //       'assets/sivan.png',
@@ -131,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             //     ), ,
                             child: CircleAvatar(
                               backgroundColor: Colors.white,
-                              foregroundImage: AssetImage("assets/sivan.png"),
+                              foregroundImage: AssetImage("assets/gana.png"),
                             ),
                           ),
                           // child: CircleAvatar(
